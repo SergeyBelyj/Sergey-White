@@ -1,5 +1,5 @@
 
-package ru.job4j.calculate;
+package ru.job4j;
 /**
 * Package for calculate task.
 *
@@ -10,17 +10,22 @@ package ru.job4j.calculate;
 
 public class Calculate {
 
+
 /**
-*@return ¬озвращает значение value три раза в одну строку
-*/
-
-	public String echo(String value){
-		return String.format("%s %s %s, value, value, value);
-}
-
+     * Main.
+     * @param args - args.
+     */
 	public static void main(String[] args) {
 		Calculate calc = new Calculate();
 		System.out.println(calc.echo("ahh"));
 	}
+/**
+* Method echo.
+* @param name Your name.
+* @return Echo plus your name.
+*/
+	public String echo(String name) {
+  	  return "Echo, echo, echo : " + name;
+}
 	
 }
