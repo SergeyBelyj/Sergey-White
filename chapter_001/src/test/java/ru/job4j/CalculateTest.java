@@ -1,9 +1,15 @@
 package ru.job4j;
 
+import org.hamcrest.Matcher;
 import org.junit.Test;
+
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
-import static org.hamcrest.core.Is.is;
+import java.lang.Object;
+
+
+
+import static com.sun.org.apache.xerces.internal.util.PropertyState.is;
 import static org.junit.Assert.assertThat;
 
 /**
@@ -22,9 +28,7 @@ public class CalculateTest {
         ByteArrayOutputStream out = new ByteArrayOutputStream();
         System.setOut(new PrintStream(out));
         Calculate.main(null);
-        assertThat(
-                out.toString(),
-                is(
+        assertThat(out.toString(), (Matcher<? super String>) is(
                         String.format(
                                 "Hello World%s",
                                 System.getProperty("line.separator")
