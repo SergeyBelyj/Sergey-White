@@ -18,7 +18,7 @@ public class CalculatorTest {
     @Test
     public void whenSubtractOneMinusOneThenZero() {
         Calculator calc = new Calculator();
-        calc.add(1D, 1D);
+        calc.subtract(1D, 1D);
         double result = calc.getResult();
         double expected = 0D;
         assertThat(result, is(expected));
@@ -26,7 +26,7 @@ public class CalculatorTest {
     @Test
     public void whenMultiplication1On1Then1() {
         Calculator calc = new Calculator();
-        calc.add(1D, 1D);
+        calc.multiplication(1D, 1D);
         double result = calc.getResult();
         double expected = 1D;
         assertThat(result, is(expected));
@@ -34,7 +34,7 @@ public class CalculatorTest {
     @Test
     public void  whenDiv2On2Then1() {
         Calculator calc = new Calculator();
-        calc.add(1D, 1D);
+        calc.div(1D, 1D);
         double result = calc.getResult();
         double expected = 1D;
         assertThat(result, is(expected));
