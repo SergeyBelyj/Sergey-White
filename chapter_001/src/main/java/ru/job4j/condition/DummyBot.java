@@ -4,14 +4,14 @@ package ru.job4j.condition;
 public class DummyBot {
 
     public String answer(String question) {
-        String rsl = "\u042d\u0442\u043e \u0441\u0442\u0430\u0432\u0438\u0442 \u043c\u0435\u043d\u044f \u0432 \u0442\u0443\u043f\u0438\u043a. \u0421\u043f\u0440\u043e\u0441\u0438\u0442\u0435 \u0434\u0440\u0443\u0433\u043e\u0439 \u0432\u043e\u043f\u0440\u043e\u0441.";
-        if ("\u041f\u0440\u0438\u0432\u0435\u0442, \u0411\u043e\u0442".equals(question)) {
+        String rsl = "Это ставит меня в тупик. Спросите другой вопрос.";
+        if ("Привет, Бот".equals(question)) {
 
-            rsl = "\u041f\u0440\u0438\u0432\u0435\u0442, \u0443\u043c\u043d\u0438\u043a.";
-        } else if ("\u041f\u043e\u043a\u0430.".equals((question))) {
+            rsl = "Привет, умник.";
+        } else if ("Пока".equals((question))) {
 
 
-            rsl = "\u0414\u043e \u0441\u043a\u043e\u0440\u043e\u0439 \u0432\u0441\u0442\u0440\u0435\u0447\u0438.";
+            rsl = "До скорой встречи.";
         }
         return rsl;
     }
