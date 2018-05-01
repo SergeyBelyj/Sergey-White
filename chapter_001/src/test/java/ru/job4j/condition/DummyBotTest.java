@@ -14,8 +14,8 @@ public class DummyBotTest {
     public void whenGreetBot() {
         DummyBot bot = new DummyBot();
         assertThat(
-                bot.answer("Привет, Бот."),
-                is("Привет, умник.")
+                bot.answer("\u041f\u0440\u0438\u0432\u0435\u0442, \u0411\u043e\u0442."),
+                is("\u041f\u0440\u0438\u0432\u0435\u0442, \u0443\u043c\u043d\u0438\u043a.")
         );
     }
 
