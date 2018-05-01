@@ -14,7 +14,7 @@ public class CounterTest {
         int start = 1;
         int finish = 10;
         int result = Counter.add(start, finish);
-        int expected = 300;
+        int expected = 30;
         assertThat(result, is(expected));
 
     }
