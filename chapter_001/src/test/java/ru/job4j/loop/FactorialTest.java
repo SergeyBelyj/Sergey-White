@@ -14,7 +14,6 @@ public class FactorialTest {
         int result = Factorial.calc(5);
         int expected = 120;
         assertThat(result, is(expected));
-
     }
     @Test
     public void when0Then1() {
@@ -22,6 +21,5 @@ public class FactorialTest {
         int result = Factorial.calc(0);
         int expected = 1;
         assertThat(result, is(expected));
-
     }
 }
