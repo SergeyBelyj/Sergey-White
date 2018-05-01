@@ -23,8 +23,8 @@ public class DummyBotTest {
     public void whenByuBot() {
         DummyBot bot = new DummyBot();
         assertThat(
-                bot.answer("Пока."),
-                is("До скорой встречи.")
+                bot.answer("\u041f\u043e\u043a\u0430."),
+                is("\u0414\u043e \u0441\u043a\u043e\u0440\u043e\u0439 \u0432\u0441\u0442\u0440\u0435\u0447\u0438.")
         );
     }
 
@@ -32,8 +32,8 @@ public class DummyBotTest {
     public void whenUnknownBot() {
         DummyBot bot = new DummyBot();
         assertThat(
-                bot.answer("Сколько будет 2 + 2?"),
-                is("Это ставит меня в тупик. Спросите другой вопрос.")
+                bot.answer("\u0421\u043a\u043e\u043b\u044c\u043a\u043e \u0431\u0443\u0434\u0435\u0442 2 + 2?"),
+                is("\u042d\u0442\u043e \u0441\u0442\u0430\u0432\u0438\u0442 \u043c\u0435\u043d\u044f \u0432 \u0442\u0443\u043f\u0438\u043a. \u0421\u043f\u0440\u043e\u0441\u0438\u0442\u0435 \u0434\u0440\u0443\u0433\u043e\u0439 \u0432\u043e\u043f\u0440\u043e\u0441.")
         );
     }
 }
