@@ -1,7 +1,7 @@
 package ru.job4j.loop;
 
 public class Board {
-    public  StringBuffer paint(int width, int height) {
+    public  String paint(int width, int height) {
     StringBuffer sb = new StringBuffer();
     for (int i = 0; i <= height; i++) {
         for (int j = 0; j <= width; j++) {
@@ -11,8 +11,8 @@ public class Board {
                 sb.append(" ");
             }
         }
-        sb.append("/n");
+        sb.append(System.lineSeparator());
     }
-        return sb;
+        return sb.toString();
     }
 }
