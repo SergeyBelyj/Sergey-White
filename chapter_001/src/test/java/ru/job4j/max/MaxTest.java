@@ -24,4 +24,10 @@ public class MaxTest {
         int result = maxim.max(2, 1);
         assertThat(result, is(2));
     }
+    @Test
+    public void when3Elements() {
+        Max maxim = new Max();
+        int result = maxim.max(2, 1, 3);
+        assertThat(result, is(3));
+    }
 }
