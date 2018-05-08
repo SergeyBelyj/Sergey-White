@@ -1,0 +1,5 @@
+<root>
+    <item name='javafx.application.Application'>
+        <annotation name='java.lang.Deprecated'/>
+    </item>
+</root>
