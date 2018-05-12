@@ -23,12 +23,12 @@ public class ConverterTest {
     public void whenEuroToRubleThen70() {
         Converter converter = new Converter();
         double result = converter.euroToRuble(2);
-        assertThat(result, closeTo(140.0,0.1));
+        assertThat(result, closeTo(140.0, 0.1));
     }
     @Test
     public void whenDollarToRubleThen60() {
         Converter converter = new Converter();
         double result = converter.dollarToRuble(7);
-        assertThat(result, closeTo(420.0,0.1));
+        assertThat(result, closeTo(420.0, 0.1));
     }
 }

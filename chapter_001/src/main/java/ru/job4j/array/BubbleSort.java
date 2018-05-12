@@ -2,9 +2,9 @@ package ru.job4j.array;
 
 public class BubbleSort {
     public int[] sortirovka(int[] array) {
-        int i =0;
+        int i = 0;
 
-       while (i < (array.length -1)) {
+       while (i < (array.length - 1)) {
                 int temp;
                 if (array[i] > array[i + 1]) {
                     temp = array[i];

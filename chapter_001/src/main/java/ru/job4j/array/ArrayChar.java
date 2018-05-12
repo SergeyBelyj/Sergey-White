@@ -17,7 +17,7 @@ public class ArrayChar {
                 k++;
             }
         }
-        if (k == value.length ) {
+        if (k == value.length) {
             result = true;
         } else {
             result = false;
