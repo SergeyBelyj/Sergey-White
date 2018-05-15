@@ -12,9 +12,15 @@ public class Item {
         this.name = name;
         this.created = created;
     }
-    public Item() {
-
+    public Item(String id, String name) {
+    this.id = id;
+    this.name = name;
     }
+
+    public Item(String name) {
+        this.name = name;
+    }
+
 
     public void setId(String id) {
         this.id = id;
