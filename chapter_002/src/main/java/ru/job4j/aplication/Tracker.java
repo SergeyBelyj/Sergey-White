@@ -19,7 +19,7 @@ public class Tracker {
 
     public void replace(String id, Item item) {
         for (Item it : this.items) {
-            if (it == item) {
+            if (it.getId().equals(id)) {
                 it = item;
             }
         }
@@ -72,4 +72,6 @@ public class Tracker {
         System.arraycopy(this.items, otAndDo + 1 ,result, otAndDo -1 , this.items.length - otAndDo);
     }
 
+    public void add(String srte, String adfsd, long l) {
+    }
 }
