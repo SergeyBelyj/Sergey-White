@@ -18,42 +18,42 @@ public class Tracker {
     }
 
     public void replace(String id, Item item) {
+        int k = 0;
         for (Item it : this.items) {
+            k++;
             if (it.getId().equals(id)) {
+                item.setId(items[k].getId());
                 it = item;
+                break;
             }
         }
     }
     public Item[] findByName(String key) {
         int kol = 0;
+        Item[] result = new Item[100];
         for (Item it : this.items) {
             if (it.getName().equals(key)) {
+                result[kol] =it;
                 kol++;
             }
         }
-        Item[] result = new Item[kol];
-        int i = 0;
-        for (Item it : this.items) {
-            if (it.getName().equals(key)) {
-                result[i] = it;
-                i++;
-            }
-        } return result;
+        return result;
     }
 
     public Item findById(String id) {
         Item result = null;
-        for (Item item : this.items)
-            if (item.getId().equals(id)) result = item;
-
+        for (Item item : this.items) {
+            if (item.getId().equals(id)) {
+                result = item;
+                break;
+            }
+        }
         return result;
     }
     public Item[] findAll() {
         Item[] result = new Item[position];
-       for(int i = 0; i < position; i ++) {
+       for (int i = 0; i < position; i++) {
             result[i] = this.items[i];
-
-
             }
             return result;
         }
@@ -63,13 +63,14 @@ public class Tracker {
         int findPosition = 0;
         for (Item it : this.items) {
 
-            if (it.getId() == id) { otAndDo = findPosition; break;
-
+            if (it.getId().equals(id)) {
+                otAndDo = findPosition;
+                break;
             }
             findPosition++;
         }
-        System.arraycopy(this.items,0, result, 0, otAndDo - 1);
-        System.arraycopy(this.items, otAndDo + 1 ,result, otAndDo -1 , this.items.length - otAndDo);
+        System.arraycopy(this.items, 0, result,  0, otAndDo - 1);
+        System.arraycopy(this.items, otAndDo + 1, result, otAndDo - 1, this.items.length - otAndDo);
     }
 
     public void add(String srte, String adfsd, long l) {
