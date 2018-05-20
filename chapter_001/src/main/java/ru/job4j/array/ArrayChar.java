@@ -15,6 +15,7 @@ public class ArrayChar {
         for (int i = 0; i < value.length && value.length < data.length; i++) {
             if (data[i] != value[i]) {
                  result = false;
+                 break;
             }
 
 
