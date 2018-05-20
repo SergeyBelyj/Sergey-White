@@ -18,12 +18,10 @@ public class Tracker {
     }
 
     public void replace(String id, Item item) {
-        int k = 0;
-        for (Item it : this.items) {
-            k++;
-            if (it.getId().equals(id)) {
-                item.setId(items[k].getId());
-                it = item;
+        for (int i = 0; i < this.items.length; i++) {
+            if (this.items[i].getId().equals(id)) {
+                item.setId(this.items[i].getId());
+                this.items[i] = item;
                 break;
             }
         }
@@ -71,8 +69,5 @@ public class Tracker {
         }
         System.arraycopy(this.items, 0, result,  0, otAndDo - 1);
         System.arraycopy(this.items, otAndDo + 1, result, otAndDo - 1, this.items.length - otAndDo);
-    }
-
-    public void add(String srte, String adfsd, long l) {
     }
 }
