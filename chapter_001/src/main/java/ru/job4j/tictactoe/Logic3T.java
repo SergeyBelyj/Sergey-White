@@ -10,30 +10,132 @@ public class Logic3T {
 
     public boolean isWinnerX() {
         boolean result = false;
-        if ((this.table[0][0].hasMarkX() && this.table[0][1].hasMarkX() && this.table[0][2].hasMarkX())) { result = true; }
-        else if ((this.table[1][0].hasMarkX() && this.table[1][1].hasMarkX() && this.table[1][2].hasMarkX())) {result = true;}
-        else if ((this.table[2][0].hasMarkX() && this.table[2][1].hasMarkX() && this.table[2][2].hasMarkX())) {result = true;}
-        else if ((this.table[0][0].hasMarkX() && this.table[1][1].hasMarkX() && this.table[2][2].hasMarkX())) {result = true;}
-        else if ((this.table[2][0].hasMarkX() && this.table[1][1].hasMarkX() && this.table[0][2].hasMarkX())) {result = true;}
-        else  if ((this.table[0][0].hasMarkX() && this.table[1][0].hasMarkX() && this.table[2][0].hasMarkX())) {result = true;}
-        else  if ((this.table[1][0].hasMarkX() && this.table[1][1].hasMarkX() && this.table[2][1].hasMarkX())) {result = true;}
-        else  if ((this.table[0][2].hasMarkX() && this.table[1][2].hasMarkX() && this.table[2][2].hasMarkX())) {result = true;}
-
+        // проверка в ряд
+        for (int row = 0; row < this.table.length; row++) {
+            if (!result) {
+                for (int col = 0; col < this.table.length - 1; col++) {
+                    if (this.table[row][col].hasMarkX() && this.table[row][col + 1].hasMarkX()) {
+                        result = true;
+                    } else {
+                        result = false;
+                        break;
+                    }
+                }
+            } else {
+                break;
+            }
+        }
+        // проверка в столбец
+        for (int row = 0; row < this.table.length; row++) {
+            if (!result) {
+                for (int col = 0; col < this.table.length - 1; col++) {
+                    if (this.table[col][row].hasMarkX() && this.table[col + 1][row].hasMarkX()) {
+                        result = true;
+                    } else {
+                        result = false;
+                        break;
+                    }
+                }
+            } else {
+                break;
+            }
+        }
+        // диагональ 1
+        for (int row = 0; row < this.table.length; row++) {
+            if (!result) {
+                for (int col = 0; col < this.table.length - 1; col++) {
+                    if (this.table[col][col].hasMarkX() && this.table[col + 1][col + 1].hasMarkX()) {
+                        result = true;
+                    } else {
+                        result = false;
+                        break;
+                    }
+                }
+            } else {
+                break;
+            }
+        }
+        // диагональ 2
+        for (int row = 0; row < this.table.length; row++) {
+            if (!result) {
+                for (int col = this.table.length - 1; col > 0; col--) {
+                    if ((this.table[col][this.table.length - col - 1].hasMarkX()) && (this.table[col - 1][this.table.length - col].hasMarkX())) {
+                        result = true;
+                    } else {
+                        result = false;
+                        break;
+                    }
+                }
+            } else {
+                break;
+            }
+        }
 
          return result;
     }
 
     public boolean isWinnerO() {
         boolean result = false;
-        if ((this.table[0][0].hasMarkO() && this.table[0][1].hasMarkO() && this.table[0][2].hasMarkO())) { result = true; }
-        else if ((this.table[1][0].hasMarkO() && this.table[1][1].hasMarkO() && this.table[1][2].hasMarkO())) {result = true;}
-        else if ((this.table[2][0].hasMarkO() && this.table[2][1].hasMarkO() && this.table[2][2].hasMarkO())) {result = true;}
-        else if ((this.table[0][0].hasMarkO() && this.table[1][1].hasMarkO() && this.table[2][2].hasMarkO())) {result = true;}
-        else if ((this.table[2][0].hasMarkO() && this.table[1][1].hasMarkO() && this.table[0][2].hasMarkO())) {result = true;}
-        else  if ((this.table[0][0].hasMarkO() && this.table[1][0].hasMarkO() && this.table[2][0].hasMarkO())) {result = true;}
-        else  if ((this.table[1][0].hasMarkO() && this.table[1][1].hasMarkO() && this.table[2][1].hasMarkO())) {result = true;}
-        else  if ((this.table[0][2].hasMarkO() && this.table[1][2].hasMarkO() && this.table[2][2].hasMarkO())) {result = true;}
-
+        // проверка в ряд
+        for (int row = 0; row < this.table.length; row++) {
+            if (!result) {
+                for (int col = 0; col < this.table.length - 1; col++) {
+                    if (this.table[row][col].hasMarkO() && this.table[row][col + 1].hasMarkO()) {
+                        result = true;
+                    } else {
+                        result = false;
+                        break;
+                    }
+                }
+            } else {
+                break;
+            }
+        }
+        // проверка в столбец
+        for (int row = 0; row < this.table.length; row++) {
+            if (!result) {
+                for (int col = 0; col < this.table.length - 1; col++) {
+                    if (this.table[col][row].hasMarkO() && this.table[col + 1][row].hasMarkO()) {
+                        result = true;
+                    } else {
+                        result = false;
+                        break;
+                    }
+                }
+            } else {
+                break;
+            }
+        }
+        // диагональ 1
+        for (int row = 0; row < this.table.length; row++) {
+            if (!result) {
+                for (int col = 0; col < this.table.length - 1; col++) {
+                    if (this.table[col][col].hasMarkO() && this.table[col + 1][col + 1].hasMarkO()) {
+                        result = true;
+                    } else {
+                        result = false;
+                        break;
+                    }
+                }
+            } else {
+                break;
+            }
+        }
+        // диагональ 2
+        for (int row = 0; row < this.table.length; row++) {
+            if (!result) {
+                for (int col = this.table.length - 1; col > 0; col--) {
+                    if ((this.table[col][this.table.length - col - 1].hasMarkO()) && (this.table[col - 1][this.table.length - col].hasMarkO())) {
+                        result = true;
+                    } else {
+                        result = false;
+                        break;
+                    }
+                }
+            } else {
+                break;
+            }
+        }
 
         return result;
     }
@@ -42,8 +144,8 @@ public class Logic3T {
         boolean result = true;
         int i = 0;
         for (int row = 0; row < this.table.length; row++) {
-            for (int cell = 0; cell < this.table.length ; cell++) {
-                if (this.table[row][cell].hasMarkO() || this.table[row][cell].hasMarkX()) {
+            for (int col = 0; col < this.table.length ; col++) {
+                if (this.table[row][col].hasMarkO() || this.table[row][col].hasMarkX()) {
                     i++;
                 }
             }
