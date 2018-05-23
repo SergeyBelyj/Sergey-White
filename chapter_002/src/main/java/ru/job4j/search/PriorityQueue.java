@@ -16,11 +16,13 @@ public class PriorityQueue {
         //TODO добавить вставку в связанный список.
         Iterator<Task> iterator = tasks.iterator();
         if (tasks.size() > 0) {
-            if (task.getPriority() > tasks.getFirst().getPriority()) {
-                iterator.next();
-                this.tasks.add(task);
-            } else {
-                this.tasks.addFirst(task);
+            int size = this.tasks.size();
+            for (int index = 0; index != size; index++) {
+                if (task.getPriority() > tasks.getFirst().getPriority()) {
+                    this.tasks.add(task);
+                } else {
+                    this.tasks.addFirst(task);
+                }
             }
         } else {
             this.tasks.add(task);
