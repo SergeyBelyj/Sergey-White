@@ -14,7 +14,7 @@ public class PriorityQueue {
      */
     public void put(Task task) {
         //TODO добавить вставку в связанный список.
-        Iterator<Task> iterator = tasks.iterator();
+
         if (tasks.size() > 0) {
             int size = this.tasks.size();
             for (int index = 0; index != size; index++) {
