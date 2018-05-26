@@ -1,13 +1,12 @@
 package ru.job4j.aplication;
 
-
 import java.util.Calendar;
 
-
 public class Tracker {
-    private Item[] items = new Item[100];
 
+    private Item[] items = new Item[100];
     private int position = 0;
+
     public Item add(Item  item) {
         item.setId(this.generateId());
         this.items[this.position++] = item;
@@ -26,6 +25,7 @@ public class Tracker {
             }
         }
     }
+
     public Item[] findByName(String key) {
         int kol = 0;
         Item[] result = new Item[100];
@@ -48,13 +48,15 @@ public class Tracker {
         }
         return result;
     }
+
     public Item[] findAll() {
         Item[] result = new Item[position];
-       for (int i = 0; i < position; i++) {
-            result[i] = this.items[i];
-            }
-            return result;
-        }
+       for (int i = 0; i != position; i++) {
+           result[i] = this.items[i];
+       }
+        return result;
+    }
+
     public void delete(String id) {
         Item[] result = new Item[position - 1];
         int otAndDo = 0;

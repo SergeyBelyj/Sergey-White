@@ -1,5 +1,9 @@
 package ru.job4j.aplication;
 
+
+
+import java.util.Objects;
+
 public class Item {
    private String id;
    private String name;
@@ -15,6 +19,11 @@ public class Item {
     public Item(String id, String name) {
     this.id = id;
     this.name = name;
+    }
+
+
+    public Item() {
+
     }
 
     public Item(String name) {
@@ -62,4 +71,20 @@ public class Item {
         this.name = name;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Item)) return false;
+        Item item = (Item) o;
+        return created == item.created &&
+                Objects.equals(id, item.id) &&
+                Objects.equals(name, item.name) &&
+                Objects.equals(desc, item.desc);
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(id, name, desc, created);
+    }
 }
