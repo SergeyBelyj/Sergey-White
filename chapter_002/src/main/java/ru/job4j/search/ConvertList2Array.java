@@ -7,17 +7,18 @@ public class ConvertList2Array {
         int cells = (int) Math.ceil((double) list.size() / rows);
 
         int[][] array = new int[rows][cells];
-        int i = 0;
-        int j = 0;
+        int i = rows;
+        rows = 0;
+        cells = 0;
           for (Integer ar : list) {
-              if (j < rows) {
-                  array[i][j] = ar;
-                  j++;
+              if (cells < i) {
+                  array[rows][cells] = ar;
+                  cells++;
               } else {
-                  i++;
-                  j = 0;
-                  array[i][j] = ar;
-                  j++;
+                  rows++;
+                  cells = 0;
+                  array[rows][cells] = ar;
+                  cells++;
               }
           }
 
