@@ -80,7 +80,7 @@ public class Logic3T {
         for (int row = 0; row < this.table.length; row++) {
             if (!result) {
                 for (int col = 0; col < this.table.length - 1; col++) {
-                    if (this.table[row][col].hasMarkO() && this.table[row][col + 1].hasMarkO()) {
+                    if ((this.table[row][col].hasMarkO() && this.table[row][col + 1].hasMarkO()) || (this.table[col][row].hasMarkO() && this.table[col + 1][row].hasMarkO())) {
                         result = true;
                     } else {
                         result = false;
@@ -91,7 +91,7 @@ public class Logic3T {
                 break;
             }
         }
-        // проверка в столбец
+        /* проверка в столбец
         for (int row = 0; row < this.table.length; row++) {
             if (!result) {
                 for (int col = 0; col < this.table.length - 1; col++) {
@@ -106,11 +106,12 @@ public class Logic3T {
                 break;
             }
         }
+        */
         // диагональ 1
         for (int row = 0; row < this.table.length; row++) {
             if (!result) {
                 for (int col = 0; col < this.table.length - 1; col++) {
-                    if (this.table[col][col].hasMarkO() && this.table[col + 1][col + 1].hasMarkO()) {
+                    if ((this.table[col][col].hasMarkO() && this.table[col + 1][col + 1].hasMarkO()) || ((this.table[col][this.table.length - col - 1].hasMarkO()) && (this.table[col - 1][this.table.length - col].hasMarkO()))) {
                         result = true;
                     } else {
                         result = false;
@@ -121,10 +122,10 @@ public class Logic3T {
                 break;
             }
         }
-        // диагональ 2
+        /* диагональ 2
         for (int row = 0; row < this.table.length; row++) {
             if (!result) {
-                for (int col = this.table.length - 1; col > 0; col--) {
+                for (int col = 0; col != this.table.length - 1; col++) {
                     if ((this.table[col][this.table.length - col - 1].hasMarkO()) && (this.table[col - 1][this.table.length - col].hasMarkO())) {
                         result = true;
                     } else {
@@ -136,7 +137,7 @@ public class Logic3T {
                 break;
             }
         }
-
+*/
         return result;
     }
 
@@ -144,7 +145,7 @@ public class Logic3T {
         boolean result = true;
         int i = 0;
         for (int row = 0; row < this.table.length; row++) {
-            for (int col = 0; col < this.table.length ; col++) {
+            for (int col = 0; col < this.table.length; col++) {
                 if (this.table[row][col].hasMarkO() || this.table[row][col].hasMarkX()) {
                     i++;
                 }
