@@ -70,14 +70,14 @@ public class Tracker {
         int otAndDo = 0;
         int findPosition = 0;
         for (Item it : this.items) {
-
             if (it.getId().equals(id)) {
                 otAndDo = findPosition;
                 break;
-            }
-            findPosition++;
+            } else { findPosition++; }
         }
-        System.arraycopy(this.items, 0, result,  0, otAndDo - 1);
-        System.arraycopy(this.items, otAndDo + 1, result, otAndDo - 1, this.items.length - otAndDo);
+            System.arraycopy(this.items, 0, result,  0, otAndDo);
+            System.arraycopy(this.items, otAndDo + 1, result, otAndDo , position - 1);
+        this.items = result;
+        this.position --;
     }
 }
