@@ -1,6 +1,8 @@
 package ru.job4j.aplication;
 
+
 import java.util.Calendar;
+
 
 public class Tracker {
 
@@ -28,14 +30,20 @@ public class Tracker {
 
     public Item[] findByName(String key) {
         int kol = 0;
-        Item[] result = new Item[100];
-        for (Item it : this.items) {
-            if (it.getName().equals(key)) {
-                result[kol] =it;
+        for (int j = 0; j != position; j++) {
+            if (this.items[j].getName().equals(key)) {
                 kol++;
             }
         }
-        return result;
+            Item[] result = new Item[kol];
+            int i = 0;
+            for (int j = 0; j != position; j++) {
+                if (this.items[j].getName().equals(key)) {
+                    result[i] = this.items[j];
+                    i++;
+                }
+            }
+            return result;
     }
 
     public Item findById(String id) {
