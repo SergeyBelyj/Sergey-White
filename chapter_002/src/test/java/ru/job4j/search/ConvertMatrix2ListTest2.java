@@ -1,17 +1,15 @@
 package ru.job4j.search;
 
 import org.junit.Test;
-
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
-public class ConvertMatrix2ListTest {
+public class ConvertMatrix2ListTest2 {
     @Test
     public void when2on2ArrayThenList4() {
-        ConvertMatrix2List list = new ConvertMatrix2List();
+        ConvertMatrix2List2 list = new ConvertMatrix2List2();
         int[][] input = {
                 {1, 2},
                 {3, 4}
@@ -22,4 +20,4 @@ public class ConvertMatrix2ListTest {
         List<Integer> result = list.toList(input);
         assertThat(result, is(expect));
     }
- }
+}
