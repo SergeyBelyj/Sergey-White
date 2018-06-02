@@ -1,6 +1,5 @@
 package ru.job4j.search;
 
-import java.util.Iterator;
 import java.util.LinkedList;
 
 public class PriorityQueue {
@@ -14,22 +13,20 @@ public class PriorityQueue {
      */
     public void put(Task task) {
         //TODO добавить вставку в связанный список.
-
-        if (tasks.size() > 0) {
-            int size = this.tasks.size();
-            for (int index = 0; index != size; index++) {
-                if (task.getPriority() > tasks.getFirst().getPriority()) {
-                    this.tasks.add(task);
-                } else {
-                    this.tasks.addFirst(task);
-                }
-            }
-        } else {
+        if (tasks.size() == 0) {
             this.tasks.add(task);
+        }
+        int max = this.tasks.size();
+        for (int index = 0; index < max; index++) {
+            if (task.getPriority() < tasks.get(index).getPriority()) {
+               this.tasks.add(index, task);
+               break;
+            }
         }
     }
 
     public Task take() {
+
         return this.tasks.poll();
     }
 }
