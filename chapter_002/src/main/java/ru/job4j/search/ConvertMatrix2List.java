@@ -10,6 +10,7 @@ public class ConvertMatrix2List {
             for (int i = 0; i < a.length; i++) {
                 list.add(a[i]);
             }
-        } return list;
+        }
+        return list;
     }
 }
