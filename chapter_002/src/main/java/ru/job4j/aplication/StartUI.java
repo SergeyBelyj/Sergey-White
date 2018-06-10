@@ -5,6 +5,13 @@ import java.util.Arrays;
 public class StartUI {
     private Input input;
     private Tracker tracker = new Tracker();
+    private static final String EXIT = "6";
+    private static final String ADD = "0";
+    private static final String ALL = "1";
+    private static final String EDIT = "2";
+    private static final String DEL = "3";
+    private static final String FID = "4";
+    private static final String FNM = "5";
 
     public StartUI(Input input, Tracker tracker) {
         this.input =  input;
@@ -14,14 +21,6 @@ public class StartUI {
     public StartUI(Input input) {
         this.input =  input;
     }
-
-    private static final String EXIT = "6";
-    private static final String ADD = "0";
-    private static final String ALL = "1";
-    private static final String EDIT = "2";
-    private static final String DEL = "3";
-    private static final String FID = "4";
-    private static final String FNM = "5";
 
     public  void init() {
         boolean exit = true;
