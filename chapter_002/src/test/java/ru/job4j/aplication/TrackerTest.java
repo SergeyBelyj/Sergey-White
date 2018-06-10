@@ -39,7 +39,7 @@ public class TrackerTest {
     @Test
     public void whenAddThenReturnGetAll2() {
         Tracker tracker = new Tracker();
-        Item previous = new Item("test1","testDescription",123L);
+        Item previous = new Item("test1", "testDescription", 123L);
         tracker.add(previous);
         assertThat(tracker.findAll()[0].getName(), is("test1"));
     }

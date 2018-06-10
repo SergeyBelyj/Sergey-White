@@ -73,11 +73,13 @@ public class Tracker {
             if (it.getId().equals(id)) {
                 otAndDo = findPosition;
                 break;
-            } else { findPosition++; }
+            } else {
+                findPosition++;
+            }
         }
             System.arraycopy(this.items, 0, result,  0, otAndDo);
-            System.arraycopy(this.items, otAndDo + 1, result, otAndDo , position - 1);
+            System.arraycopy(this.items, otAndDo + 1, result, otAndDo, position - 1);
         this.items = result;
-        this.position --;
+        this.position--;
     }
 }

@@ -1,7 +1,7 @@
 package ru.job4j.draw;
 
 
-public class Triangle implements Shape{
+public class Triangle implements Shape {
 
 
     public String draw() {

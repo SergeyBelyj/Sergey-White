@@ -1,10 +1,8 @@
 package ru.job4j.aplication;
 
-
-
 import java.util.Objects;
 
-public class Item {
+public class Item extends Object {
    private String id;
    private String name;
    private String desc;
@@ -13,23 +11,16 @@ public class Item {
 
     public Item(String name, String desc, long created) {
         this.name = name;
-        this.name = name;
+        this.desc = desc;
         this.created = created;
     }
-    public Item(String id, String name) {
-    this.id = id;
-    this.name = name;
-    }
 
-
-    public Item() {
-
-    }
-
-    public Item(String name) {
+    public Item(String name, String desc) {
         this.name = name;
+        this.desc = desc;
     }
 
+    public Item() { }
 
     public void setId(String id) {
         this.id = id;
@@ -73,18 +64,30 @@ public class Item {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Item)) return false;
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof Item)) {
+            return false;
+        }
         Item item = (Item) o;
-        return created == item.created &&
-                Objects.equals(id, item.id) &&
-                Objects.equals(name, item.name) &&
-                Objects.equals(desc, item.desc);
+        return created == item.created
+                && Objects.equals(name, item.name)
+                && Objects.equals(desc, item.desc);
     }
 
     @Override
     public int hashCode() {
 
-        return Objects.hash(id, name, desc, created);
+        return Objects.hash(name, desc, created);
+    }
+
+    @Override
+    public String toString() {
+        return "Item{"
+                + "name='"
+                + this.name
+                + '\''
+                +  '}';
     }
 }
