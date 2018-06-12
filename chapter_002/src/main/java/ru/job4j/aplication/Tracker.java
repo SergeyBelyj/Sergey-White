@@ -48,10 +48,12 @@ public class Tracker {
 
     public Item findById(String id) {
         Item result = null;
-        for (Item item : this.items) {
-            if (item.getId().equals(id)) {
-                result = item;
-                break;
+        if (position > 0) {
+            for (Item item : this.items) {
+                if (id.equals(item.getId())) {
+                    result = item;
+                    break;
+                }
             }
         }
         return result;
@@ -66,20 +68,22 @@ public class Tracker {
     }
 
     public void delete(String id) {
-        Item[] result = new Item[position - 1];
-        int otAndDo = 0;
-        int findPosition = 0;
-        for (Item it : this.items) {
-            if (it.getId().equals(id)) {
-                otAndDo = findPosition;
-                break;
-            } else {
-                findPosition++;
+        if (position > 0) {
+            Item[] result = new Item[position - 1];
+            int otAndDo = 0;
+            int findPosition = 0;
+            for (Item it : this.items) {
+                if (it.getId().equals(id)) {
+                    otAndDo = findPosition;
+                    break;
+                } else {
+                    findPosition++;
+                }
             }
-        }
-            System.arraycopy(this.items, 0, result,  0, otAndDo);
+            System.arraycopy(this.items, 0, result, 0, otAndDo);
             System.arraycopy(this.items, otAndDo + 1, result, otAndDo, position - 1);
-        this.items = result;
-        this.position--;
+            this.items = result;
+            this.position--;
+        }
     }
 }
