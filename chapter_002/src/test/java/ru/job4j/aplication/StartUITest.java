@@ -32,19 +32,12 @@ public class StartUITest {
     }
     @Test
     public void whenDeleteById() {
-        // создаём Tracker
-        Tracker tracker = new Tracker();
-        //Напрямую добавляем заявку
-        Item item = new Item();
-        //создаём StubInput с последовательностью действий
+       Tracker tracker = new Tracker();
         Input input = new StubInput(new String[]{"0", "test name", "desc", "6"});
-
-        // создаём StartUI и вызываем метод init()
-        new StartUI(input, tracker).init();
+      new StartUI(input, tracker).init();
         tracker.add(new Item("test name2", "desc2"));
         String id = tracker.findAll()[0].getId();
         tracker.delete(id);
-        // проверяем, что нулевой элемент массива в трекере содержит имя, введённое при эмуляции.
         assertThat(tracker.findAll(), is(tracker.findByName("test name2")));
     }
 }
