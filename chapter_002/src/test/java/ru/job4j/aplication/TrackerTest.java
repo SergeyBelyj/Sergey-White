@@ -43,5 +43,15 @@ public class TrackerTest {
         tracker.add(previous);
         assertThat(tracker.findAll()[0].getName(), is("test1"));
     }
+    @Test
+    public void whenAdd2AndDel1ThenReturn1() {
+        Tracker tracker = new Tracker();
+        Item previous = new Item("test1", "testDescription", 123L);
+        Item previous2 = new Item("test2", "testDescription2", 12L);
+        tracker.add(previous);
+        tracker.add(previous2);
+        tracker.delete(previous.getId());
+        assertThat(tracker.findAll()[0].getName(), is("test2"));
+    }
 
 }
