@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class StartUI {
     private Input input;
-    private Tracker tracker = new Tracker();
+   /* private Tracker tracker = new Tracker();
     private static final String EXIT = "6";
     private static final String ADD = "0";
     private static final String ALL = "1";
@@ -23,7 +23,7 @@ public class StartUI {
     }
 
     public  void init() {
-        boolean exit = true;
+       boolean exit = true;
         while (exit) {
             String answer = input.ask("0. Add new Item\n"
                    + "1. Show all items\n"
@@ -49,6 +49,7 @@ public class StartUI {
                 exit = false;
             }
         }
+
     }
     private void createItem() {
         System.out.println("------------ Добавление новой заявки --------------");
@@ -97,5 +98,30 @@ public class StartUI {
         Input input = new ConsoleInput();
         new StartUI(input).init();
     }
+    */
+   public StartUI(Input input) {
+       this.input = input;
+   }
+   public void init() {
+       Tracker tracker = new Tracker();
+       MenuTracker menu = new MenuTracker(this.input, tracker);
+       menu.fillActions();
+       boolean exit = true;
+       while (exit) {
+           menu.show();
+           System.out.println("For exit program, please enter: 6");
+           String key = input.ask("Select:");
+           if (!"6".equals(key)) {
+               menu.select(Integer.parseInt(key));
+           } else {
+               exit = false;
+           }
+       }
+   }
 
+
+   public static void main(String[] args) {
+       Input input = new ConsoleInput();
+       new StartUI(input).init();
+   }
 }

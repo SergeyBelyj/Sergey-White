@@ -14,6 +14,17 @@ public class Tracker {
         this.items[this.position++] = item;
         return item;
     }
+
+    public void edit(Item fresh) {
+        for (int index = 0; index != items.length; ++index) {
+            Item item = items[index];
+            if (item != null && item.getId().equals(fresh.getId())) {
+                items[index] = fresh;
+                break;
+            }
+        }
+    }
+
     public String generateId() {
         return Math.random() + "" + Calendar.getInstance().getTimeInMillis();
     }
