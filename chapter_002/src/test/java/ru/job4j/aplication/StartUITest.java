@@ -11,7 +11,7 @@ public class StartUITest {
     @Test
     public void whenUserAddItemThenTrackerHasNewItemWithSameName() {
         Tracker tracker = new Tracker();     // создаём Tracker
-        Input input = new StubInput(new String[]{"0", "test name", "desc", "6"});   //создаём StubInput с последовательностью действий
+        Input input = new StubInput(new String[]{"1", "test name", "desc", "7"});   //создаём StubInput с последовательностью действий
         new StartUI(input, tracker).init();     //   создаём StartUI и вызываем метод init()
         assertThat(tracker.findAll()[0].getName(), is("test name")); // проверяем, что нулевой элемент массива в трекере содержит имя, введённое при эмуляции.
     }
@@ -23,7 +23,7 @@ public class StartUITest {
         //Напрямую добавляем заявку
         Item item = new Item();
         //создаём StubInput с последовательностью действий
-        Input input = new StubInput(new String[]{"0", "test name", "desc", "6"});
+        Input input = new StubInput(new String[]{"1", "test name", "desc", "7"});
         // создаём StartUI и вызываем метод init()
         new StartUI(input, tracker).init();
         item = tracker.findAll()[0];
@@ -33,7 +33,7 @@ public class StartUITest {
     @Test
     public void whenDeleteById() {
        Tracker tracker = new Tracker();
-        Input input = new StubInput(new String[]{"0", "test name", "desc", "6"});
+        Input input = new StubInput(new String[]{"1", "test name", "desc", "7"});
       new StartUI(input, tracker).init();
         tracker.add(new Item("test name2", "desc2"));
         String id = tracker.findAll()[0].getId();

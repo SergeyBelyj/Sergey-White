@@ -104,7 +104,6 @@ public class StartUI {
        this.tracker = tracker;
    }
    public void init() {
-       Tracker tracker = new Tracker();
        MenuTracker menu = new MenuTracker(this.input, tracker);
        menu.fillActions();
        boolean exit = true;
@@ -112,7 +111,7 @@ public class StartUI {
            menu.show();
            System.out.println("For exit program, please enter: 6");
            String key = input.ask("Select:");
-           if (!"6".equals(key)) {
+           if (!"7".equals(key)) {
                menu.select(Integer.parseInt(key));
            } else {
                exit = false;
@@ -123,6 +122,7 @@ public class StartUI {
 
    public static void main(String[] args) {
        Input input = new ConsoleInput();
-       new StartUI(input, new Tracker()).init();
+       Tracker tracker = new Tracker();
+       new StartUI(input, tracker).init();
    }
 }

@@ -1,13 +1,9 @@
 package ru.job4j.aplication;
 
-import ru.job4j.search.Task;
-
-import java.nio.channels.MulticastChannel;
-
 public class MenuTracker {
     private Input input;
     private Tracker tracker;
-    private UserAction[] actions = new UserAction[6];
+    private UserAction[] actions = new UserAction[7];
 
     public MenuTracker(Input input, Tracker tracker) {
         this.input = input;
@@ -23,12 +19,12 @@ public class MenuTracker {
         AddItem item = tr.new AddItem();
     }
     public void fillActions() {
-        this.actions[0] = new AddItem();
-        this.actions[1] = new MenuTracker.ShowItems();
-        this.actions[2] = new EditItem();
-        this.actions[3] = new DeletItem();
-        this.actions[4] = new FindIdItem();
-        this.actions[5] = new FindNameItem();
+        this.actions[1] = new AddItem();
+        this.actions[2] = new MenuTracker.ShowItems();
+        this.actions[3] = new EditItem();
+        this.actions[4] = new DeletItem();
+        this.actions[5] = new FindIdItem();
+        this.actions[6] = new FindNameItem();
 
     }
     public void select(int key) {
@@ -45,7 +41,7 @@ public class MenuTracker {
     // add
     private class AddItem implements UserAction {
         public int key() {
-            return 0;
+            return 1;
         }
         public void execute(Input input, Tracker tracker) {
             String name = input.ask("Please, enter the task's name");
@@ -59,7 +55,7 @@ public class MenuTracker {
     // show all
     private static class ShowItems implements UserAction {
         public int key() {
-            return 1;
+            return 2;
         }
 
         public void execute(Input input, Tracker tracker) {
@@ -77,7 +73,7 @@ public class MenuTracker {
         // edit
         private class EditItem implements UserAction {
             public int key() {
-                return 2;
+                return 3;
             }
             public void execute(Input input, Tracker tracker) {
                 String id = input.ask("Please, enter the task's id");
@@ -94,7 +90,7 @@ public class MenuTracker {
     // del
     private class DeletItem implements UserAction {
         public int key() {
-            return 3;
+            return 4;
         }
         public void execute(Input input, Tracker tracker) {
             String id = input.ask("Please, enter the task's id");
@@ -107,7 +103,7 @@ public class MenuTracker {
     // findById
     private class FindIdItem implements UserAction {
         public int key() {
-            return 4;
+            return 5;
         }
         public void execute(Input input, Tracker tracker) {
             String id = input.ask("Please, enter the task's id");
@@ -120,7 +116,7 @@ public class MenuTracker {
     // find by name
     private class FindNameItem implements UserAction {
         public int key() {
-            return 5;
+            return 6;
         }
         public void execute(Input input, Tracker tracker) {
             String name = input.ask("Please, enter the task's name");
