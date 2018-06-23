@@ -5,7 +5,7 @@ import java.util.Arrays;
 public class StartUI {
     private Input input;
     private Tracker tracker;
-    private int[] ranges = new int[] {1, 2, 3, 4, 5, 6};
+    private int[] ranges = new int[] {1, 2, 3, 4, 5, 6, 7};
     /*private static final String EXIT = "6";
     private static final String ADD = "0";
     private static final String ALL = "1";
@@ -13,16 +13,13 @@ public class StartUI {
     private static final String DEL = "3";
     private static final String FID = "4";
     private static final String FNM = "5";
-
     public StartUI(Input input, Tracker tracker) {
         this.input =  input;
         this.tracker = tracker;
     }
-
     public StartUI(Input input) {
         this.input =  input;
     }
-
     public  void init() {
        boolean exit = true;
         while (exit) {
@@ -50,7 +47,6 @@ public class StartUI {
                 exit = false;
             }
         }
-
     }
     private void createItem() {
         System.out.println("------------ Добавление новой заявки --------------");
@@ -60,7 +56,6 @@ public class StartUI {
         this.tracker.add(item);
         System.out.println("------------ Новая заявка с именем : " + name + " добавлена -----------");
     }
-
     private void editItem() {
         System.out.println("------------ Изменение заявки --------------");
         String id = this.input.ask("Введите id заявки :");
@@ -70,55 +65,59 @@ public class StartUI {
         this.tracker.replace(id, item);
         System.out.println("------------ Заявка с id : " + id + " изменина -----------");
     }
-
     private void deleteByIdItem() {
         System.out.println("------------ Удаление заявки --------------");
         String id = this.input.ask("Введите id заявки :");
         this.tracker.delete(id);
         System.out.println("------------ Заявка с id : " + id + " удалена -----------");
     }
-
     private Item[] showAll() {
         return   this.tracker.findAll();
     }
-
     private Item findByI() {
         System.out.println("------------ Поиск заявки по id --------------");
         String id = this.input.ask("Введите id заявки :");
         return this.tracker.findById(id);
     }
-
     private Item[] findByN() {
         System.out.println("------------ Поиск заявки по имени --------------");
         String name = this.input.ask("Введите имя заявки :");
         return this.tracker.findByName(name);
     }
-
     public static void main(String[] args) {
       // Input input = new StubInput(new String[] {"created new task"});
         Input input = new ConsoleInput();
         new StartUI(input).init();
     }
     */
-   public StartUI(Input input, Tracker tracker) {
-       this.input = input;
-       this.tracker = tracker;
-   }
-   public void init() {
-       MenuTracker menu = new MenuTracker(this.input, tracker);
-       menu.fillActions();
-       boolean exit = true;
-       while (exit) {
-           menu.show();
+    public StartUI(Input input, Tracker tracker) {
+        this.input = input;
+        this.tracker = tracker;
+    }
+    public void init() {
+        MenuTracker menu = new MenuTracker(this.input, tracker);
+        menu.fillActions();
+        boolean exit = true;
+        while (exit) {
+            menu.show();
 
-           menu.select(input.ask("Select:", ranges));
-       }
-   }
+            menu.select(input.ask("Select:", ranges));
+            for (int val : ranges) {
+                if (val == 7) {
+                    exit = false;
+                    break;
+                }
+            }
+        }
+    }
 
 
-   public static void main(String[] args) {
-       Input input = new ValidateInput();
-       Tracker tracker = new Tracker();
-       new StartUI(input, tracker).init();
-   }
+    public static void main(String[] args) {
+        new StartUI(
+                new ValidateInput(
+                        new ConsoleInput()
+                ),
+                new Tracker()
+        ).init();
+    }
 }
