@@ -20,7 +20,7 @@ public class MenuTracker {
         MenuTracker tr = new MenuTracker();
         AddItem item = tr.new AddItem();
     }
-    public void fillActions() {
+    public void fillActions(StartUI ui) {
         this.actions[1] = new AddItem();
         this.actions[2] = new MenuTracker.ShowItems();
         this.actions[3] = new EditItem();
@@ -131,14 +131,16 @@ public class MenuTracker {
     }
     //exit program
     private class ExitProgram implements UserAction {
+        private final StartUI ui = null;
+
         public int key() {
             return 7;
         }
 
 
-        public void execute(Input input, Tracker tracker) {
-            StartUI.exit = false;
-        }
+        public void execute(Input input, Tracker tracker) {           
+            this.ui.stop();
+                }
 
         @Override
         public String info() {
