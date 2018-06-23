@@ -5,7 +5,7 @@ import javax.jws.soap.SOAPBinding;
 public class MenuTracker {
     private Input input;
     private Tracker tracker;
-    private UserAction[] actions = new UserAction[7];
+    private UserAction[] actions = new UserAction[8];
 
     public MenuTracker(Input input, Tracker tracker) {
         this.input = input;
@@ -27,6 +27,7 @@ public class MenuTracker {
         this.actions[4] = new DeletItem();
         this.actions[5] = new FindIdItem();
         this.actions[6] = new FindNameItem();
+        this.actions[7] = new ExitProgram();
 
     }
     public void select(int key) {
@@ -126,6 +127,22 @@ public class MenuTracker {
         }
         public String info() {
             return String.format("%s. %s", this.key(), "Find item by name.");
+        }
+    }
+    //exit program
+    private class ExitProgram implements UserAction {
+        public int key() {
+            return 7;
+        }
+
+
+        public void execute(Input input, Tracker tracker) {
+            StartUI.exit = false;
+        }
+
+        @Override
+        public String info() {
+            return String.format("%s. %s", this.key(), "Exit program, bye...");
         }
     }
 }

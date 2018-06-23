@@ -3,6 +3,7 @@ package ru.job4j.aplication;
 import java.util.Arrays;
 
 public class StartUI {
+    static boolean exit = true;
     private Input input;
     private Tracker tracker;
     private int[] ranges = new int[] {1, 2, 3, 4, 5, 6, 7};
@@ -97,17 +98,10 @@ public class StartUI {
     public void init() {
         MenuTracker menu = new MenuTracker(this.input, tracker);
         menu.fillActions();
-        boolean exit = true;
-        while (exit) {
+        while (StartUI.exit) {
             menu.show();
-
             menu.select(input.ask("Select:", ranges));
-            for (int val : ranges) {
-                if (val == 7) {
-                    exit = false;
-                    break;
-                }
-            }
+
         }
     }
 
