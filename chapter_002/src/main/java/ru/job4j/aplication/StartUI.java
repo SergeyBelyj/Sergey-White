@@ -4,8 +4,8 @@ import java.util.Arrays;
 
 public class StartUI {
     private Input input;
-   /* private Tracker tracker = new Tracker();
-    private static final String EXIT = "6";
+    private Tracker tracker;
+    /*private static final String EXIT = "6";
     private static final String ADD = "0";
     private static final String ALL = "1";
     private static final String EDIT = "2";
@@ -99,8 +99,9 @@ public class StartUI {
         new StartUI(input).init();
     }
     */
-   public StartUI(Input input) {
+   public StartUI(Input input, Tracker tracker) {
        this.input = input;
+       this.tracker = tracker;
    }
    public void init() {
        Tracker tracker = new Tracker();
@@ -122,6 +123,6 @@ public class StartUI {
 
    public static void main(String[] args) {
        Input input = new ConsoleInput();
-       new StartUI(input).init();
+       new StartUI(input, new Tracker()).init();
    }
 }
