@@ -5,6 +5,7 @@ import java.util.Arrays;
 public class StartUI {
     private Input input;
     private Tracker tracker;
+    private int[] ranges = new int[] {1, 2, 3, 4, 5, 6};
     /*private static final String EXIT = "6";
     private static final String ADD = "0";
     private static final String ALL = "1";
@@ -109,19 +110,14 @@ public class StartUI {
        boolean exit = true;
        while (exit) {
            menu.show();
-           System.out.println("For exit program, please enter: 6");
-           String key = input.ask("Select:");
-           if (!"7".equals(key)) {
-               menu.select(Integer.parseInt(key));
-           } else {
-               exit = false;
-           }
+
+           menu.select(input.ask("Select:", ranges));
        }
    }
 
 
    public static void main(String[] args) {
-       Input input = new ConsoleInput();
+       Input input = new ValidateInput();
        Tracker tracker = new Tracker();
        new StartUI(input, tracker).init();
    }

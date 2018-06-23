@@ -1,5 +1,7 @@
 package ru.job4j.aplication;
 
+import javax.jws.soap.SOAPBinding;
+
 public class MenuTracker {
     private Input input;
     private Tracker tracker;
@@ -126,5 +128,4 @@ public class MenuTracker {
             return String.format("%s. %s", this.key(), "Find item by name.");
         }
     }
-
 }
