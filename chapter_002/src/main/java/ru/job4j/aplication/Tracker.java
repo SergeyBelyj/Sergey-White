@@ -40,18 +40,18 @@ public class Tracker {
         }
     }
 
-    public Item[] findByName(String key) {
+    public ArrayList<Item> findByName(String key) {
         int kol = 0;
         for (int j = 0; j != position; j++) {
             if (this.items.get(j).getName().equals(key)) {
                 kol++;
             }
         }
-            Item[] result = new Item[kol];
+        ArrayList<Item> result = null;
             int i = 0;
             for (int j = 0; j != position; j++) {
                 if (this.items.get(j).getName().equals(key)) {
-                    result[i] = this.items.get(j);
+                    result.set(i, this.items.get(j));
                     i++;
                 }
             }
@@ -71,10 +71,10 @@ public class Tracker {
         return result;
     }
 
-    public Item[] findAll() {
-        Item[] result = new Item[position];
+    public ArrayList<Item> findAll() {
+        ArrayList<Item> result = null;
        for (int i = 0; i != position; i++) {
-           result[i] = this.items.get(i);
+           result.set(i, this.items.get(i));
        }
         return result;
     }
@@ -82,20 +82,14 @@ public class Tracker {
     public void delete(String id) {
         if (position > 0) {
             ArrayList<Item> result = null;
-            int otAndDo = 0;
-            int findPosition = 0;
             for (Item it : this.items) {
                 if (it.getId().equals(id)) {
-                    otAndDo = findPosition;
+
+                    this.items.remove(it);
                     break;
-                } else {
-                    findPosition++;
                 }
             }
-            System.arraycopy(this.items, 0, result, 0, otAndDo);
-            System.arraycopy(this.items, otAndDo + 1, result, otAndDo, position - 1);
             this.items = result;
-            this.position--;
         }
     }
 }
