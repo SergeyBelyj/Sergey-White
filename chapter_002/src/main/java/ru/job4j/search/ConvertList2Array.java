@@ -1,8 +1,11 @@
 package ru.job4j.search;
 
+import java.util.Collections;
 import java.util.List;
 
 public class ConvertList2Array {
+    List<Integer> result = null;
+
     public int[][] toArray(List<Integer> list, int rows) {
         int cells = (int) Math.ceil((double) list.size() / rows);
 
@@ -24,5 +27,14 @@ public class ConvertList2Array {
 
 
         return array;
+    }
+
+    public List<Integer> convert(List<int[]> list2) {
+        for (int[] ar : list2) {
+            for (int index = 0; index < ar.length; index++) {
+                result.add(ar[index]);
+            }
+        }
+        return result;
     }
 }
