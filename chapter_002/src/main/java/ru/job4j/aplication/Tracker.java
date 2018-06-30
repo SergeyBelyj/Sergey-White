@@ -2,17 +2,19 @@ package ru.job4j.aplication;
 
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
+import java.util.List;
 
 
 public class Tracker {
 
-    private ArrayList<Item> items;
+    private List<Item> items = new ArrayList<Item>();
     private int position = 0;
 
     public Item add(Item  item) {
         item.setId(this.generateId());
-        this.items.set(this.position++, item);
+        this.items.add(this.position++, item);
         return item;
     }
 
@@ -40,18 +42,18 @@ public class Tracker {
         }
     }
 
-    public ArrayList<Item> findByName(String key) {
+    public Item[] findByName(String key) {
         int kol = 0;
         for (int j = 0; j != position; j++) {
             if (this.items.get(j).getName().equals(key)) {
                 kol++;
             }
         }
-        ArrayList<Item> result = null;
+            Item[] result = new Item[kol];
             int i = 0;
             for (int j = 0; j != position; j++) {
                 if (this.items.get(j).getName().equals(key)) {
-                    result.set(i, this.items.get(j));
+                    result[i] = this.items.get(j);
                     i++;
                 }
             }
@@ -71,25 +73,25 @@ public class Tracker {
         return result;
     }
 
-    public ArrayList<Item> findAll() {
-        ArrayList<Item> result = null;
+    public Item[] findAll() {
+        Item[] result = new Item[position];
        for (int i = 0; i != position; i++) {
-           result.set(i, this.items.get(i));
+           result[i] = this.items.get(i);
        }
         return result;
     }
 
     public void delete(String id) {
         if (position > 0) {
-            ArrayList<Item> result = null;
+            List<Item> result = new ArrayList<Item>();
             for (Item it : this.items) {
                 if (it.getId().equals(id)) {
-
                     this.items.remove(it);
                     break;
                 }
             }
-            this.items = result;
+            result = this.items;
+            this.position--;
         }
     }
 }
