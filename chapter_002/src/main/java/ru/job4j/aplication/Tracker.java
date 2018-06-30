@@ -42,18 +42,18 @@ public class Tracker {
         }
     }
 
-    public Item[] findByName(String key) {
+    public List<Item> findByName(String key) {
         int kol = 0;
-        for (int j = 0; j != position; j++) {
+        for (int j = 0; j != this.items.size(); j++) {
             if (this.items.get(j).getName().equals(key)) {
                 kol++;
             }
         }
-            Item[] result = new Item[kol];
+            List<Item> result = new ArrayList<Item>();
             int i = 0;
-            for (int j = 0; j != position; j++) {
+            for (int j = 0; j != this.items.size(); j++) {
                 if (this.items.get(j).getName().equals(key)) {
-                    result[i] = this.items.get(j);
+                    result.add(i, this.items.get(j));
                     i++;
                 }
             }
@@ -73,10 +73,10 @@ public class Tracker {
         return result;
     }
 
-    public Item[] findAll() {
-        Item[] result = new Item[position];
-       for (int i = 0; i != position; i++) {
-           result[i] = this.items.get(i);
+    public List<Item> findAll() {
+       List<Item> result = new ArrayList<Item>();
+       for (int i = 0; i != this.items.size(); i++) {
+           result.add(i, this.items.get(i));
        }
         return result;
     }
