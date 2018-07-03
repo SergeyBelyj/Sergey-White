@@ -1,12 +1,15 @@
 package ru.job4j.sort;
 
+import java.util.Comparator;
+import java.util.List;
 import java.util.Objects;
 
-public class User implements Comparable<User> {
+public class User{
  String name;
- int age;
- User(String name) {
+ String age;
+ User(String name, String age) {
      this.name = name;
+     this.age = age;
  }
 
     @Override
@@ -24,17 +27,16 @@ public class User implements Comparable<User> {
 
     @Override
     public int hashCode() {
-
         return Objects.hash(name, age);
     }
 
-    @Override
-    public int compareTo(User o) {
-     return this.name.compareTo(o.name);
-   }
+
 
     @Override
     public String toString() {
-        return "User{" + "name='" + name + '\'' + '}';
+        return  name + " " + age;
     }
+
+
+
 }
