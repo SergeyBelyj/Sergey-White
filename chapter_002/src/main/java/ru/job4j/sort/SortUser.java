@@ -6,17 +6,7 @@ import java.util.*;
 
 public class SortUser {
 
-
-
-
-    public static void main(String[] args) {
-        List<User> users = new ArrayList<>();
-        users.add(new User("Сергей", "25"));
-        users.add(new User("Иван", "30"));
-        users.add(new User("Сергей", "20"));
-        users.add(new User("Иван", "25"));
-
-        System.out.println(users);
+    public static List<User> sortNameLength(ArrayList<User> users) {
         users.sort(
                 new Comparator<User>() {
                     @Override
@@ -25,7 +15,9 @@ public class SortUser {
                     }
                 }
         );
-        System.out.println(users);
+        return users;
+    }
+    public static List<User> sortByAllFields (List<User> users) {
         users.sort(
                 new Comparator<User>() {
                     @Override
@@ -34,6 +26,21 @@ public class SortUser {
                     }
                 }
         );
-        System.out.println(users);
+        return users;
     }
+
+
+    public static void main(String[] args) {
+        ArrayList<User> users = new ArrayList<>();
+        users.add(new User("Сергей", "25"));
+        users.add(new User("Иван", "30"));
+        users.add(new User("Сергей", "20"));
+        users.add(new User("Иван", "25"));
+
+        System.out.println(users);
+        System.out.println(sortNameLength(users));
+        System.out.println(sortByAllFields(users));
+
+    }
+
 }
