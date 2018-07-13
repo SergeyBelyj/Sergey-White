@@ -23,7 +23,7 @@ public class SortUser {
                     @Override
                     public int compare(User o1, User o2) {
 
-                             return o1.name == o2.name ? o1.age.compareTo(o2.age) : o1.name.compareTo(o2.name);
+                             return o1.name.equals(o2.name) ? o1.age.compareTo(o2.age) : o1.name.compareTo(o2.name);
 
                     }
                 }
