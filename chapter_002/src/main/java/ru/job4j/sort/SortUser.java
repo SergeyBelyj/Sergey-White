@@ -22,7 +22,9 @@ public class SortUser {
                 new Comparator<User>() {
                     @Override
                     public int compare(User o1, User o2) {
-                        return o1.name.compareTo(o2.name) + o1.age.compareTo(o2.age);
+
+                             return o1.name == o2.name ? o1.age.compareTo(o2.age) : o1.name.compareTo(o2.name);
+
                     }
                 }
         );
@@ -40,6 +42,7 @@ public class SortUser {
         System.out.println(users);
         System.out.println(sortNameLength(users));
         System.out.println(sortByAllFields(users));
+
 
     }
 
