@@ -15,12 +15,12 @@ public class PriorityQueue {
         //TODO добавить вставку в связанный список.
         int index = tasks.size();
         for (Task t : tasks) {
-            if ((t.getPriority() > task.getPriority())){
+            if ((t.getPriority() > task.getPriority())) {
                 index = tasks.indexOf(t);
                break;
             }
         }
-        this.tasks.add(index,task);
+        this.tasks.add(index, task);
     }
 
 

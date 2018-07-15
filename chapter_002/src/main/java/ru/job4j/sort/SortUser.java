@@ -17,7 +17,7 @@ public class SortUser {
         );
         return users;
     }
-    public static List<User> sortByAllFields (List<User> users) {
+    public static List<User> sortByAllFields(List<User> users) {
         users.sort(
                 new Comparator<User>() {
                     @Override

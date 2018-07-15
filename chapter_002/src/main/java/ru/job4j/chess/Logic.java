@@ -33,7 +33,7 @@ public class Logic {
         return rst;
     }
 
-    public void clean() {
+    public  void clean() {
         for (int position = 0; position != this.figures.length; position++) {
             this.figures[position] = null;
         }
