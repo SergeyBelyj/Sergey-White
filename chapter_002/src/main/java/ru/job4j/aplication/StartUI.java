@@ -6,7 +6,8 @@ public class StartUI {
     private boolean exit = true;
     private Input input;
     private Tracker tracker;
-    private int[] ranges = new int[] {1, 2, 3, 4, 5, 6, 7};
+    private int[] ranges = new int[]{1, 2, 3, 4, 5, 6, 7};
+
     /*private static final String EXIT = "6";
     private static final String ADD = "0";
     private static final String ALL = "1";
@@ -95,6 +96,7 @@ public class StartUI {
         this.input = input;
         this.tracker = tracker;
     }
+
     public void init() {
         MenuTracker menu = new MenuTracker(this.input, tracker);
         menu.fillActions(this);
@@ -104,6 +106,7 @@ public class StartUI {
 
         }
     }
+
     public void stop() {
         this.exit = false;
     }

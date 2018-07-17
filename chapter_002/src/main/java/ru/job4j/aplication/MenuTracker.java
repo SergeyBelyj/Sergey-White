@@ -20,13 +20,13 @@ public class MenuTracker {
         MenuTracker tr = new MenuTracker();
     }
     public void fillActions(StartUI ui) {
-        this.actions[1] = new AddItem();
-        this.actions[2] = new MenuTracker.ShowItems();
-        this.actions[3] = new EditItem();
-        this.actions[4] = new DeletItem();
-        this.actions[5] = new FindIdItem();
-        this.actions[6] = new FindNameItem();
-        this.actions[7] = new ExitProgram();
+        this.actions[1] = new AddItem(1,"add");
+        this.actions[2] = new MenuTracker.ShowItems(2,"showAll");
+        this.actions[3] = new EditItem(3,"Edit");
+        this.actions[4] = new DeletItem(4, "Delete");
+        this.actions[5] = new FindIdItem(5, "findById");
+        this.actions[6] = new FindNameItem(6, "findByName");
+        this.actions[7] = new ExitProgram(7, "exit");
 
     }
     public void select(int key) {
@@ -140,4 +140,3 @@ public class MenuTracker {
 
 
     }
-}
