@@ -1,9 +1,8 @@
-package Generic;
+package generic;
 
-import java.lang.reflect.ParameterizedType;
 import java.util.Iterator;
 
-public class SimpleList<T> implements Iterable<T>{
+public class SimpleList<T> implements Iterable<T> {
 
 
     Object[] objects;

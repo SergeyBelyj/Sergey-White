@@ -1,6 +1,5 @@
-package List;
+package list;
 
-import java.util.Arrays;
 import java.util.Iterator;
 
 import static java.lang.System.arraycopy;

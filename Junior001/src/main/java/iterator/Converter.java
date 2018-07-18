@@ -1,6 +1,5 @@
-package Iterator;
+package iterator;
 
-import javax.print.attribute.IntegerSyntax;
 import java.util.Iterator;
 
 public class Converter {

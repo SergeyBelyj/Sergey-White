@@ -34,7 +34,7 @@ public class MatrixIterator implements Iterator {
                 }
 
             } catch (Exception e) {
-                return e;
+                return e.getMessage();
             }
         }
     }
