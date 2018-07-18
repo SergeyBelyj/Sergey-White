@@ -5,7 +5,6 @@ import java.util.NoSuchElementException;
 
 public class EvenNumbersIterrat implements Iterator {
 
-
     private final int[] values;
     private int index = 0;
     private int indexNext = 0;
@@ -27,21 +26,11 @@ public class EvenNumbersIterrat implements Iterator {
                 }
             } return result;
         }
-    public boolean isNull(int[] val) {
-        boolean res = false;
-        try {
-            if (val.length == 0) {
-            }
-        } catch (ArrayIndexOutOfBoundsException e) {
-            res = true;
-        }
-        return res;
-    }
 
     @Override
     public boolean hasNext() {
         int res = traversal(values);
-        return ((res == -1) || (isNull(values))) ? false : true;
+        return (res != -1);
     }
 
     @Override
