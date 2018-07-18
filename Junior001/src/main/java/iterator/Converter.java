@@ -1,21 +1,35 @@
 package iterator;
 
+
 import java.util.Iterator;
+import java.util.NoSuchElementException;
+
 
 public class Converter {
-    Iterator<Integer> convert(Iterator<Iterator<Integer>> it) {
+    Iterator<Integer> convert(Iterator<Iterator<Integer>> it)  {
+
 
 
 
         return new Iterator<Integer>() {
-            @Override
-            public boolean hasNext() {
-                return it.next().hasNext();
-            }
+            private Iterator<Integer> tempIt;
 
+
+            public boolean hasNext() {
+                while (tempIt == null || !tempIt.hasNext()) {
+                    if (!it.hasNext()) {
+                        return false;
+                    }
+                    tempIt = it.next();
+                }
+                return true;
+            }
             @Override
             public Integer next() {
-                return it.next().next();
+                if (!hasNext()) {
+                    throw new NoSuchElementException();
+                }
+                return tempIt.next();
             }
         };
     }
