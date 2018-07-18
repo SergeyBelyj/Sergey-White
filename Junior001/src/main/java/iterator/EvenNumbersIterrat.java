@@ -17,7 +17,7 @@ public class EvenNumbersIterrat implements Iterator {
         public int traversal(int[] value) {
             int result = -1;
             index = indexNext;
-            for (; index < value.length; ) {
+            for (; index < value.length;) {
                 if (value[index] % 2 == 0) {
                     result = index;
                     index++;
@@ -27,17 +27,31 @@ public class EvenNumbersIterrat implements Iterator {
                 }
             } return result;
         }
+    public boolean isNull(int[] val) {
+        boolean res = false;
+        try {
+            if (val.length == 0) {
+            }
+        } catch (ArrayIndexOutOfBoundsException e) {
+            res = true;
+        }
+        return res;
+    }
 
     @Override
     public boolean hasNext() {
         int res = traversal(values);
-        return (res == -1) ? false : true;
+        return ((res == -1) || (isNull(values))) ? false : true;
     }
 
     @Override
     public Object next() {
-        int res = traversal(values);
-        indexNext = res + 1;
-        return (res != -1) ? values[res] : new NoSuchElementException();
+        if (!hasNext()) {
+            throw new NoSuchElementException();
+        } else {
+            int res = traversal(values);
+            indexNext = res + 1;
+            return values[res];
+        }
     }
 }
