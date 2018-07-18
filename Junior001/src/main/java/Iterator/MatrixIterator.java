@@ -1,6 +1,7 @@
-package Iterator;
+package iterator;
 
 import java.util.Iterator;
+import java.util.NoSuchElementException;
 
 
 public class MatrixIterator implements Iterator {
@@ -12,27 +13,29 @@ public class MatrixIterator implements Iterator {
 
 
         public MatrixIterator(final int[][] values) {
-
             this.values = values;
         }
 
         @Override
         public boolean hasNext() {
-             if ((values.length == (cols + 1)) && (values[cols].length == rows )) {
-                 return false;
-             } else return true;
+            return ((values.length == cols + 1) && (values[cols].length == rows)) ? false : true;
         }
+
 
         @Override
         public Object next() {
-            if (values[cols].length > rows) {
-                return values[cols][rows++];
-            } else {
-                rows = 0;
-                cols++;
-                return values[cols][rows++];
-            }
+            try {
+                if (values[cols].length > rows) {
+                    return values[cols][rows++];
+                } else {
+                    rows = 0;
+                    cols++;
+                    return values[cols][rows++];
+                }
 
+            } catch (Exception e) {
+                return e;
+            }
         }
     }
 
