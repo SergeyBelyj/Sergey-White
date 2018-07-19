@@ -18,8 +18,13 @@ public class SimpleListTest {
     simple.add("test2");
     simple.add("test3");
     simple.add("test4");
-    simple.delete(1);
-    String result = simple.get(3);
+    simple.delete(2);
+        System.out.println(simple.iterator().next());
+        System.out.println(simple.iterator().next());
+        System.out.println(simple.iterator().next());
+
+
+    String result = simple.get(2);
     assertThat(result, is("test4"));
     }
     public void showList() {
