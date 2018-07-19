@@ -16,13 +16,12 @@ public class Converter {
 
 
             public boolean hasNext() {
-                while (tempIt == null || !tempIt.hasNext()) {
-                    if (!it.hasNext()) {
-                        return false;
-                    }
+                boolean res = true;
+                if ((tempIt == null && it.hasNext()) || (!tempIt.hasNext() && it.hasNext())) {
                     tempIt = it.next();
-                }
-                return true;
+
+                } else if (!tempIt.hasNext() && !it.hasNext()) res = false;
+                return res;
             }
             @Override
             public Integer next() {
