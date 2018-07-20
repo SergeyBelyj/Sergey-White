@@ -133,7 +133,7 @@ public class MenuTracker {
         }
 
         @Override
-        public void execute(Input input, Tracker tracker) {           
+        public void execute(Input input, Tracker tracker) {
             this.ui.stop();
                 }
 
