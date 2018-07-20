@@ -19,6 +19,13 @@ public class DinamicArrayContainerTest {
     @Test
     public void whenaddSixThenSixHave() {
       int result = list.get(0);
-      assertThat(result, is(1));
+      System.out.println(list.iterator().next());
+      System.out.println(list.iterator().next());
+        System.out.println(list.iterator().next());
+        System.out.println(list.iterator().next());
+        System.out.println(list.iterator().next());
+        System.out.println(list.iterator().next());
+      assertThat(result, is(2));
+
     }
 }
