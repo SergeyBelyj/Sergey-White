@@ -13,11 +13,8 @@ public class SimpleArrayList<E> {
 
     public E delete() {
         this.size--;
-
-            this.first.date = this.first.next.date;
-            this.first.next = this.first.next.next;
-
-        return null;
+        this.first = this.first.next;
+        return  null;
     }
 
     public E get(int index) {

@@ -19,6 +19,7 @@ public class SimpleArrayListTest {
     }
     @Test
     public void whenAddThreeElementsThenUseGetOneResultTwo() {
+
         list.delete();
         assertThat(list.get(0), is(5));
     }
