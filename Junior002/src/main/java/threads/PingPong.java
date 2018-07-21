@@ -23,11 +23,17 @@ public class PingPong extends Application {
         Group group = new Group();
         Rectangle rect = new Rectangle(0, 100, 5, 5);
         group.getChildren().add(rect);
-        new Thread((java.lang.Runnable) new RectangleMove(rect)).start();
+        Thread mainThread = new Thread(new RectangleMove(rect));
+        mainThread.start();
         stage.setScene(new Scene(group, limitX, limitY));
         stage.setTitle(JOB4J);
         stage.setResizable(true);
         stage.show();
+        stage.setOnCloseRequest(
+                event -> {
+                    mainThread.interrupt();
+                });
+
     }
 }
 
