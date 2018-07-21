@@ -13,9 +13,9 @@ public class User {
         this.birthday = birthday;
     }
 
-    String name;
-    int children;
-    int birthday;
+    private String name;
+    private int children;
+    private int birthday;
 
 
     @Override
