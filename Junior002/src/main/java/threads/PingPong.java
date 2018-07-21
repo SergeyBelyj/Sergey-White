@@ -33,7 +33,6 @@ public class PingPong extends Application {
                 event -> {
                     mainThread.interrupt();
                 });
-
     }
 }
 
