@@ -13,13 +13,13 @@ import javafx.scene.shape.Rectangle;
 
         @Override
         public void run() {
-            while (true) {
+            while (!Thread.interrupted()) {
                     if (rect.getX() < 300) {
                         this.rect.setX(this.rect.getX() + 10);
                         try {
                             Thread.sleep(50);
                         } catch (InterruptedException e) {
-                            e.printStackTrace();
+                            Thread.currentThread().interrupt();
                         }
                     } else {
                         while (rect.getX() > 0) {
@@ -27,7 +27,7 @@ import javafx.scene.shape.Rectangle;
                             try {
                                 Thread.sleep(50);
                             } catch (InterruptedException e) {
-                                e.printStackTrace();
+                                Thread.currentThread().interrupt();
                             }
                         }
                     }
