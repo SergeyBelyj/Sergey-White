@@ -13,8 +13,9 @@ public class SimpleArrayList<E> {
 
     public E delete() {
         this.size--;
+        E temp = this.first.date;
         this.first = this.first.next;
-        return  null;
+        return  temp;
     }
 
     public E get(int index) {
