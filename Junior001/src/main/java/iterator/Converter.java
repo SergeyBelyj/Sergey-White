@@ -14,14 +14,15 @@ public class Converter {
         return new Iterator<Integer>() {
             private Iterator<Integer> tempIt;
 
-
+            @Override
             public boolean hasNext() {
-                boolean res = true;
-                if ((tempIt == null && it.hasNext()) || (!tempIt.hasNext() && it.hasNext())) {
+                while (tempIt == null || !tempIt.hasNext()) {
+                    if (!it.hasNext()) {
+                        return false;
+                    }
                     tempIt = it.next();
-
-                } else if (!tempIt.hasNext() && !it.hasNext()) res = false;
-                return res;
+                }
+                return true;
             }
             @Override
             public Integer next() {
