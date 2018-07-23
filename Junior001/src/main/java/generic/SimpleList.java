@@ -2,15 +2,12 @@ package generic;
 
 import java.util.Iterator;
 import java.util.NoSuchElementException;
-import java.util.Objects;
 import static java.lang.System.arraycopy;
-import static java.lang.System.in;
 
 public class SimpleList<T> implements Iterable<T> {
 
-
-    Object[] objects;
-    int index = 0;
+    private Object[] objects;
+    private int index = 0;
     private int iterIndex = 0;
 
     public SimpleList(int size) {
@@ -32,21 +29,15 @@ public class SimpleList<T> implements Iterable<T> {
         arraycopy(this.objects, ind + 1, news, ind, this.objects.length - ind - 1);
         this.objects = news;
         index--;
-
     }
-
 
     @Override
     public Iterator<T> iterator() {
         Iterator<T> temp = new Iterator<T>() {
-
-
-
             @Override
             public boolean hasNext() {
                 return iterIndex < index && objects[iterIndex] != null;
             }
-
             @Override
             public T next() {
                 if (!hasNext()) {
