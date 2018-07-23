@@ -17,13 +17,12 @@ import ru.job4j.chess.firuges.Figure;
 import ru.job4j.chess.firuges.black.*;
 import ru.job4j.chess.firuges.white.*;
 
-
 public class Chess extends Application {
     private static final String JOB4J = "Шахматы на www.job4j.ru";
     private final int size = 8;
     private final Logic logic = new Logic();
 
-    private  Rectangle buildRectangle(int x, int y, int size, boolean white) {
+    private Rectangle buildRectangle(int x, int y, int size, boolean white) {
         Rectangle rect = new Rectangle();
         rect.setX(x * size);
         rect.setY(y * size);

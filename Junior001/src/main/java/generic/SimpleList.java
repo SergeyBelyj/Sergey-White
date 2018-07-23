@@ -28,7 +28,7 @@ public class SimpleList<T> implements Iterable<T> {
     }
     public void delete(int ind) {
         Object[] news = new Object[index - 1];
-        arraycopy(this.objects, 0, news,0, ind);
+        arraycopy(this.objects, 0, news, 0, ind);
         arraycopy(this.objects, ind + 1, news, ind, this.objects.length - ind - 1);
         this.objects = news;
         index--;

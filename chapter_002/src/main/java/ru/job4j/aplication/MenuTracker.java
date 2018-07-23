@@ -5,7 +5,7 @@ package ru.job4j.aplication;
 public class MenuTracker {
     private Input input;
     private Tracker tracker;
-    private UserAction[] actions = new UserAction[8];
+    private BaseAction[] actions = new BaseAction[8];
 
     public MenuTracker(Input input, Tracker tracker) {
         this.input = input;
@@ -21,7 +21,7 @@ public class MenuTracker {
     }
     public void fillActions(StartUI ui) {
         this.actions[1] = new AddItem(1,"add");
-        this.actions[2] = new MenuTracker.ShowItems(2,"showAll");
+        this.actions[2] = new ShowItems(2,"showAll");
         this.actions[3] = new EditItem(3,"Edit");
         this.actions[4] = new DeletItem(4, "Delete");
         this.actions[5] = new FindIdItem(5, "findById");

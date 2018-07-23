@@ -1,18 +1,19 @@
-package ru.job4j.chess.firuges.;
+package ru.job4j.chess.firuges.white;
 
 import ru.job4j.chess.firuges.Cell;
 import ru.job4j.chess.firuges.Figure;
 
 /**
+ * //TODO add comments.
  *
  * @author Petr Arsentev (parsentev@yandex.ru)
  * @version $Id$
  * @since 0.1
  */
-public class BishopBlack implements Figure {
+public class PawnWhite implements Figure {
     private final Cell position;
 
-    public BishopBlack(final Cell position) {
+    public PawnWhite(final Cell position) {
         this.position = position;
     }
 
@@ -24,12 +25,11 @@ public class BishopBlack implements Figure {
     @Override
     public Cell[] way(Cell source, Cell dest) {
         return new Cell[] {
-                dest
-        };
+                dest };
     }
 
     @Override
     public Figure copy(Cell dest) {
-        return new BishopBlack(dest);
+        return new PawnWhite(dest);
     }
 }

@@ -15,6 +15,8 @@ public class UserTest {
         Map<User, Object> map = new HashMap<>();
         map.put(first,"first");
         map.put(second, "second");
+        System.out.println(first.equals(second));
+        System.out.println(second.equals(first));
         System.out.println(map);
     }
 }
