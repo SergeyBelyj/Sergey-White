@@ -26,7 +26,7 @@ public class MenuTracker {
         this.actions[4] = new DeletItem(4, "Delete");
         this.actions[5] = new FindIdItem(5, "findById");
         this.actions[6] = new FindNameItem(6, "findByName");
-        this.actions[7] = new ExitProgram(7, "exit");
+        this.actions[7] = new ExitProgram(7, "exit",ui);
 
     }
     public void select(int key) {
@@ -126,10 +126,12 @@ public class MenuTracker {
     }
     //exit program
      class ExitProgram extends BaseAction {
-        private final StartUI ui = null;
+        private final StartUI ui;
 
-        public ExitProgram(int key, String name) {
+
+        public ExitProgram(int key, String name, StartUI ui) {
             super(key, name);
+            this.ui = ui;
         }
 
         @Override
