@@ -1,36 +1,53 @@
 package set;
 
+import list.DynamicLinkedListCont;
 import java.util.Iterator;
-import java.util.LinkedList;
+import java.util.NoSuchElementException;
 
 public class SimpleSetList<E> implements Iterable<E> {
 
-    LinkedList list = new LinkedList();
-    int kol = 0;
+    DynamicLinkedListCont setList = new DynamicLinkedListCont() ;
+    private int size = 0;
+    private int sizeIt = 0;
 
-    int finCopyElem(E obj) {
-        int res = 0;
-        if (kol != 0) {
-            Iterator iterator = list.iterator();
-            if (iterator.hasNext()) {
-                if (iterator.next().equals(obj)) {
-                    res = 1;
-                }
-            }
+    void add(E value) {
+        boolean cond = true;
+        for (int i = 0; i < size; i++){
+            if (setList.get(i) == value) cond = false;
         }
-       return res;
+        if (cond) {
+            setList.add(value);
+            size++;
+        } else System.out.println("This element is in set, please repeat input");
+
     }
 
-    void add(E obj) {
-        int res = finCopyElem(obj);
-        if (res == 0) {
-            list.add(obj);
-            kol++;
-        }
+
+    E get(int index) {
+        return (E) setList.get(index);
     }
 
     @Override
-    public Iterator iterator() {
-        return null;
+    public Iterator<E> iterator() {
+        Iterator temp = new Iterator() {
+            @Override
+            public boolean hasNext() {
+                if (sizeIt < size)
+                    return true;
+                else  return false;
+            }
+
+            @Override
+            public E next() {
+                if (!hasNext()) {
+                    throw new NoSuchElementException();
+                }
+                E res = null;
+                res = (E) setList.get(sizeIt);
+                sizeIt++;
+                return res;
+            }
+        };
+        return temp;
     }
 }
