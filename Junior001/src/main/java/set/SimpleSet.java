@@ -1,43 +1,54 @@
 package set;
 
-import java.util.Arrays;
+import generic.SimpleList;
+import list.SimpleArrayList;
+
 import java.util.Iterator;
+import java.util.NoSuchElementException;
 import java.util.Objects;
 
 public class SimpleSet<T>  implements Iterable<T> {
 
-
-
-    Object[] set;
-    int index = 0;
-
-    public SimpleSet(int size) {
-
-        this.set = new Object[size];
-    }
-
-    public int searchIsElem(T obj) {
-        int res = -1;
-        for (int i = 0; i < index; i++) {
-            if (set[i].equals(obj)) {
-                res = i;
-                break;
-            }
-        } return res;
-        }
-
+    SimpleArrayList setMy = new SimpleArrayList();
+    private int sizeIt = 0;
+    private int size = 0;
     void add(T obj) {
-        int condition = searchIsElem(obj);
-        if (condition == -1) {
-            set[index++] =  obj;
-        } else {
-            System.out.println("Elem is in Set");
+        boolean cond = true;
+        for (int i = 0; i < size; i++){
+            if (setMy.get(i) == obj) cond = false;
         }
-    }
+        if (cond) {
+            setMy.add(obj);
+            size++;
+        } else System.out.println("This element is in set, please repeat input");
 
+ }
+      T get(int index) {
+        return (T) setMy.get(index);
+ }
     @Override
-    public Iterator iterator() {
-        return null;
+    public Iterator<T> iterator() {
+        Iterator<T> temp = new Iterator<T>() {
+
+            @Override
+            public boolean hasNext() {
+                if (sizeIt < size)
+                return true;
+                else  return false;
+            }
+
+            @Override
+            public T next() {
+                if (!hasNext()) {
+                    throw new NoSuchElementException();
+                }
+                T res = null;
+                res = (T) setMy.get(sizeIt);
+                sizeIt++;
+                return res;
+            }
+        };
+        return temp;
     }
 
 }
