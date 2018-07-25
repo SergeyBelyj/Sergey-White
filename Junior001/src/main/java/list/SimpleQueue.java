@@ -2,39 +2,26 @@ package list;
 
 public class SimpleQueue<E> {
     private int size;
-    private SimpleArrayList.Node<E> first;
+    SimpleArrayList.Node<E> next;
+    private DynamicLinkedListCont<E> queue = new DynamicLinkedListCont();
 
     public void push(E date) {
-        SimpleArrayList.Node<E> newLink = new SimpleArrayList.Node<E>(date);
-        newLink.next = this.first;
-        this.first = newLink;
-        this.size++;
+            queue.add(date);
+            size++;
     }
     public E poll() {
-            SimpleArrayList.Node<E> result = this.first;
-            for (int i = -1; i < size - 2; i++) {
-                result = result.next;
-
-            }
-            this.size--;
-
-        SimpleArrayList.Node<E> temp = this.first;
-        for (int i = -1; i < size - 2; i++) {
-            temp = temp.next;
+        E res = null;
+        DynamicLinkedListCont<E> newQueue = new DynamicLinkedListCont<E>();
+        for (int i = size - 1 ; i >= 0; i--){
+            if (i == size -1) {
+                res = this.queue.get(i);
+            } else { newQueue.add(this.queue.get(i)); }
         }
-
-        System.out.println(temp.date + " --- ");
-
-            return result.date;
+        size--;
+        queue = newQueue;
+        return (E) res;
     }
+}
 
 
-        public E get(int index) {
-            SimpleArrayList.Node<E> result = this.first;
-            for (int i = 0; i < index; i++) {
-                result = result.next;
-            }
-            return result.date;
-        }
-    }
 
