@@ -18,6 +18,7 @@
         <module>chapter_002</module>
         <module>Junior001</module>
         <module>Junior002</module>
+        <module>Junior003</module>
     </modules>
 	
 	<dependencies>
