@@ -7,13 +7,33 @@ public class Tree<E extends Comparable<E>> implements Iterator<E> {
 
     public Tree(E rootData) {
         root = new Node<E>(rootData);
-        root.children = new ArrayList<Node<E>>();
     }
 
-    public void add(E parent, Node<E> child) {
-        root.findBy(parent);
-        root.children.add(child);
-    }
+    public void add(Node<E> parent, Node<E> child) {
+        if ((Integer) parent.value == (Integer) root.value) {
+            root.addChild(child);
+
+        } else if ((Integer) parent.value > (Integer) root.value) {
+           int j = 0;
+            for (int i = 0; i < root.children.size(); i++) {
+
+                    if (root.children.get(i).value == parent.value) {
+                        root.children.get(i).children.add(child);
+                        break;
+                    } else if (root.children.get(i).children.size() > 0) {
+                        while (j < root.children.get(i).children.size()) {
+                            if (root.children.get(i).children.get(j).value == parent.value) {
+                                root.children.get(i).children.get(j).children.add(child) ;
+                            }  j++;
+                        }
+                    }
+
+            }
+        }
+
+
+  }
+
     @Override
     public boolean hasNext() {
         return false;
@@ -23,6 +43,7 @@ public class Tree<E extends Comparable<E>> implements Iterator<E> {
     public E next() {
         return null;
     }
+
 
     public Optional<Node<E>> findBy(E value) {
         Optional<Node<E>> rsl = Optional.empty();

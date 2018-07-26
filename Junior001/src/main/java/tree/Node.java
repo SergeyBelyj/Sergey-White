@@ -3,18 +3,16 @@ import java.util.*;
 
 
 public class Node<E extends Comparable<E>>  {
-    ArrayList<Node<E>> children = new ArrayList<>();
-    private final E value;
-    private Node<E> parent;
-
+    List<Node<E>> children = new ArrayList<Node<E>>();
+    final E value;
+    private Node<E> root;
 
 
     public Node(final E value) {
         this.value = value;
     }
 
-    public void add(Node<E> child) {
-
+    public void addChild(Node<E> child) {
         this.children.add(child);
     }
 
@@ -27,7 +25,23 @@ public class Node<E extends Comparable<E>>  {
     }
 
     public Optional<Node<E>> findBy(E value) {
-        return null;
+        Optional<Node<E>> rsl = Optional.empty();
+        Queue<Node<E>> data = new LinkedList<>();
+        data.offer(this.root);
+        while (!data.isEmpty()) {
+            Node<E> el = data.poll();
+            if (el.eqValue(value)) {
+                rsl = Optional.of(el);
+                break;
+            }
+            for (Node<E> child : el.leaves()) {
+                data.offer(child);
+            }
+        }
+        return rsl;
     }
+
+
+
 
 }
