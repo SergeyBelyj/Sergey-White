@@ -13,23 +13,19 @@ import javafx.scene.shape.Rectangle;
 
         @Override
         public void run() {
+            int step = 10;
+            boolean deltaY = false;
             while (!Thread.interrupted()) {
-                    if (rect.getX() < 300) {
-                        this.rect.setX(this.rect.getX() + 10);
+                    if ((rect.getX() < 300) && (rect.getX() > 0)) {
+                        this.rect.setX(this.rect.getX() + step);
                         try {
                             Thread.sleep(50);
                         } catch (InterruptedException e) {
                             Thread.currentThread().interrupt();
                         }
-                    } else {
-                        while (rect.getX() > 0) {
-                            this.rect.setX(this.rect.getX() - 10);
-                            try {
-                                Thread.sleep(50);
-                            } catch (InterruptedException e) {
-                                Thread.currentThread().interrupt();
-                            }
-                        }
+                    } else  {
+                        this.rect.setX(this.rect.getX() - step);
+                        step = step * -1;
                     }
                 }
             }
