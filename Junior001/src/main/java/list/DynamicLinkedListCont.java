@@ -28,6 +28,40 @@ public class DynamicLinkedListCont<E> implements Iterable<E>  {
         }
         return result.date;
     }
+   public E removeFirst() {
+    E result = null;
+    Dat<E> newLink1 = null;
+    for (int i = 0; i < size - 1; i++) {
+        Dat<E> newLink = new Dat<E>(this.first.date);
+        newLink.next = newLink1;
+        newLink1 = newLink;
+        this.first = this.first.next;
+    }
+       result = this.first.date;
+       Dat<E> newLink2 = null;
+       for (int i = 0; i < size - 1; i++) {
+           Dat<E> newLink = new Dat<E>(newLink1.date);
+           newLink.next = newLink2;
+           newLink2 = newLink;
+           newLink1 = newLink1.next;
+       }
+       this.first = newLink2;
+
+    this.size--;
+    this.modCount++;
+    return result;
+   }
+
+    public E removeLast() {
+        E result = null;
+        result = this.first.date;
+        Dat<E> newLink = this.first.next;
+        this.first = newLink;
+        modCount++;
+        size--;
+        return result;
+
+    }
 
 
     @Override
@@ -56,7 +90,7 @@ public class DynamicLinkedListCont<E> implements Iterable<E>  {
         return temp;
     }
 
-    private static class Dat<E> {
+    public static class Dat<E> {
         E date;
         Dat<E> next;
 

@@ -10,15 +10,7 @@ public class SimpleStack<E> {
         size++;
     }
     public E poll() {
-        E res = null;
-        DynamicLinkedListCont<E> newQueue = new DynamicLinkedListCont<E>();
-        for (int i = size - 1 ; i >= 0; i--){
-            if (i == 0) {
-                res = this.queue.get(i);
-            } else { newQueue.add(this.queue.get(i)); }
-        }
-        size--;
-        queue = newQueue;
+        E res = queue.removeLast();
         return (E) res;
     }
 
