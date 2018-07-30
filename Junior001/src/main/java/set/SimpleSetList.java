@@ -10,7 +10,7 @@ public class SimpleSetList<E> implements Iterable<E> {
     private int size = 0;
     private int sizeIt = 0;
 
-    void add(E value) {
+    public void add(E value) {
         boolean cond = true;
         for (int i = 0; i < size; i++){
             if (setList.get(i) == value) cond = false;
@@ -23,7 +23,7 @@ public class SimpleSetList<E> implements Iterable<E> {
     }
 
 
-    E get(int index) {
+    public E get(int index) {
         return (E) setList.get(index);
     }
 

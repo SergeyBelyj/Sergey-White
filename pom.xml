@@ -19,6 +19,7 @@
         <module>Junior001</module>
         <module>Junior002</module>
         <module>Junior003</module>
+        <module>codewars</module>
     </modules>
 	
 	<dependencies>

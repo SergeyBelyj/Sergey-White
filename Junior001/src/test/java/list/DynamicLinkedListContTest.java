@@ -18,17 +18,14 @@ public class DynamicLinkedListContTest {
         linkList.add(40);
         linkList.add(50);
         linkList.add(60);
+
     }
     @Test
     public void whenThen() {
 
-        System.out.println(linkList.iterator().next());
-        System.out.println(linkList.iterator().next());
-        System.out.println(linkList.iterator().next());
-        System.out.println(linkList.iterator().next());
-        System.out.println(linkList.iterator().next());
-        linkList.add(100);
-        System.out.println(linkList.iterator().next());
+
+        System.out.println(linkList.removeFirst());
+        System.out.println(linkList.removeLast());
 
 
 

@@ -1,18 +1,19 @@
 package set;
 
+import list.SimpleArrayList;
 import org.junit.Test;
-
-import java.util.Objects;
-
-import static org.junit.Assert.*;
 
 public class SimpleSetTest {
     @Test
     public void whenAddTwoElemSameThenNo() {
-        SimpleSet<Integer> set = new SimpleSet<Integer>(10);
-        set.add(1);
-        set.add(1);
-        System.out.println(set.hashCode());
+        SimpleSet<Integer> setM = new SimpleSet<>();
+        setM.add(12);
+        setM.add(13);
+        setM.add(13);
+        setM.add(14);
+        System.out.println(setM.iterator().next());
+        System.out.println(setM.iterator().next());
+        System.out.println(setM.iterator().next());
     }
 
 }

@@ -26,7 +26,7 @@ public class SimpleQueueTest {
             System.out.println(queue.poll());
             System.out.println(queue.poll());
             System.out.println(queue.poll());
-            System.out.println(queue.poll());
+
 
 
 

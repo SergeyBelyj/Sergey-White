@@ -11,6 +11,15 @@ public class SimpleSetListTest {
         list.add(1);
         list.add(2);
         list.add(1);
+        list.add(3);
+        list.add(2);
+        list.add(10);
+        System.out.println(list.iterator().next());
+        System.out.println(list.iterator().next());
+        System.out.println(list.iterator().next());
+        System.out.println(list.iterator().next());
+
+
     }
 
 }

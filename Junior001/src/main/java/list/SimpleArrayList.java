@@ -28,6 +28,7 @@ public class SimpleArrayList<E> {
     public int getSize() {
         return this.size;
     }
+
     public static class Node<E> {
         E date;
         Node<E> next;

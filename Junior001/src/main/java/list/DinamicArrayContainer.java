@@ -14,7 +14,7 @@ public class DinamicArrayContainer<E> implements Iterable<E> {
    // private int size = 0;
     private int iterIndex = 0;
 
-     E add(Object[] value) {
+    public E add(Object[] value) {
        //  size++;
          Object[] list = new Object[container.length + 1];
          arraycopy(value, 0, list, 0, value.length);
@@ -22,7 +22,7 @@ public class DinamicArrayContainer<E> implements Iterable<E> {
          this.container = list;
     return null;
     }
-    E get(int index) {
+   public E get(int index) {
         return (E) this.container[index];
     }
     @Override
