@@ -2,8 +2,9 @@ package threads;
 
 
 import javafx.scene.shape.Rectangle;
+import sun.awt.windows.ThemeReader;
 
-    public class RectangleMove implements Runnable {
+public class RectangleMove implements Runnable {
         private final Rectangle rect;
 
         public RectangleMove(Rectangle rect) {
@@ -25,6 +26,11 @@ import javafx.scene.shape.Rectangle;
                         }
                     } else  {
                         this.rect.setX(this.rect.getX() - step);
+                        try {
+                            Thread.sleep(50);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
                         step = step * -1;
                     }
                 }
