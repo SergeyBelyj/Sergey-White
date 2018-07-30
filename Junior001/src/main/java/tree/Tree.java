@@ -10,29 +10,26 @@ public class Tree<E extends Comparable<E>> implements Iterator<E> {
     }
 
     public void add(Node<E> parent, Node<E> child) {
-        if ((Integer) parent.value == (Integer) root.value) {
+
+        if (root.value == parent.value) {
             root.addChild(child);
-
-        } else if ((Integer) parent.value > (Integer) root.value) {
-           int j = 0;
-            for (int i = 0; i < root.children.size(); i++) {
-
-                    if (root.children.get(i).value == parent.value) {
-                        root.children.get(i).children.add(child);
+        }
+        else {
+            Queue<Node<E>> data = new LinkedList<>();
+            data.offer(this.root);
+            while (!data.isEmpty()) {
+                Node<E> el = data.poll();
+                for (Node<E> child2 : el.leaves()) {
+                    if (child2.value == parent.value) {
+                        child2.children.add(child);
+                        data.offer(child2);
                         break;
-                    } else if (root.children.get(i).children.size() > 0) {
-                        while (j < root.children.get(i).children.size()) {
-                            if (root.children.get(i).children.get(j).value == parent.value) {
-                                root.children.get(i).children.get(j).children.add(child) ;
-                            }  j++;
-                        }
-                    }
-
+                    } else  data.offer(child2);
+                }
+            }
             }
         }
 
-
-  }
 
     @Override
     public boolean hasNext() {
@@ -43,7 +40,6 @@ public class Tree<E extends Comparable<E>> implements Iterator<E> {
     public E next() {
         return null;
     }
-
 
     public Optional<Node<E>> findBy(E value) {
         Optional<Node<E>> rsl = Optional.empty();
