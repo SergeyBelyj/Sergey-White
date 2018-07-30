@@ -15,18 +15,18 @@ public class UserStorage extends User {
         this.user = new User[size + 1];    }
 
 
-    synchronized boolean  add (User user) {
+   public synchronized boolean  add (User user) {
         this.user[i] = user;
         i++;
         return true;
     }
-    synchronized boolean update(User user) {
+   public synchronized boolean update(User user) {
         if (this.user[i].id == user.id) {
             this.user[i].amount = user.amount;
         }
         return true;
     }
-    synchronized boolean delete(User user) {
+    public synchronized boolean delete(User user) {
         for (int index = 0; index < i; index++) {
         if (this.user[index].id == user.id) {
             this.user[index] = this.user[index + 1];
@@ -36,7 +36,7 @@ public class UserStorage extends User {
 
         return true;
     }
-    synchronized void transfer(int fromId, int toId, int amount) {
+   public synchronized void transfer(int fromId, int toId, int amount) {
         for (int index = 1; index < i; index++) {
             if (this.user[index].id == toId) {
                 for (int ind = 1; ind < i; ind++)
