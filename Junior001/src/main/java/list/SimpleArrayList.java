@@ -25,6 +25,17 @@ public class SimpleArrayList<E> {
         }
         return result.date;
     }
+    public boolean contain(E value)  {
+        boolean res = false;
+        Node<E> result = this.first;
+        for (int i = 0; i < size; i++) {
+            if (result.date == value) {
+                res = true;
+            }
+            result = result.next;
+        }
+        return res;
+    }
     public int getSize() {
         return this.size;
     }
