@@ -6,22 +6,16 @@ import java.util.NoSuchElementException;
 
 public class SimpleSetList<E> implements Iterable<E> {
 
-    DynamicLinkedListCont setList = new DynamicLinkedListCont() ;
+    private DynamicLinkedListCont setList = new DynamicLinkedListCont() ;
     private int size = 0;
     private int sizeIt = 0;
 
     public void add(E value) {
-        boolean cond = true;
-        for (int i = 0; i < size; i++){
-            if (setList.get(i) == value) cond = false;
-        }
-        if (cond) {
+        if (!setList.contain(value)) {
             setList.add(value);
             size++;
         } else System.out.println("This element is in set, please repeat input");
-
     }
-
 
     public E get(int index) {
         return (E) setList.get(index);

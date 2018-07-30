@@ -28,6 +28,19 @@ public class DynamicLinkedListCont<E> implements Iterable<E>  {
         }
         return result.date;
     }
+
+    public boolean contain(E value)  {
+        boolean res = false;
+        Dat<E> result = this.first;
+        for (int i = 0; i < size; i++) {
+            if (result.date == value) {
+                res = true;
+            }
+            result = result.next;
+        }
+        return res;
+    }
+
    public E removeFirst() {
     E result = null;
     Dat<E> newLink1 = null;
