@@ -1,13 +1,16 @@
 package list;
 
 
+import net.jcip.annotations.GuardedBy;
+import net.jcip.annotations.ThreadSafe;
+
 import java.util.ConcurrentModificationException;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
-
+@ThreadSafe
 public class DynamicLinkedListCont<E> implements Iterable<E>  {
 
-
+    @GuardedBy("this")
     private Dat<E> first;
     private int size = 0;
     private int modCount = 0;

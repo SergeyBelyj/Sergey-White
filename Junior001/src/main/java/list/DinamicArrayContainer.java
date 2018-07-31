@@ -1,13 +1,16 @@
 package list;
 
+import net.jcip.annotations.GuardedBy;
+import net.jcip.annotations.ThreadSafe;
+
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
 import static java.lang.System.arraycopy;
-
+@ThreadSafe
 public class DinamicArrayContainer<E> implements Iterable<E> {
-
-    Object[] container;
+    @GuardedBy("this")
+    private Object[] container;
     protected DinamicArrayContainer(Object[] container) {
         this.container = container;
     }
