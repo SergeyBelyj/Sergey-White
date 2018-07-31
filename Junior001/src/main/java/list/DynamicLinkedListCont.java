@@ -13,7 +13,7 @@ public class DynamicLinkedListCont<E> implements Iterable<E>  {
     private int modCount = 0;
     private int expectedModCount = 0;
 
-    public void add(E date) {
+    public synchronized void add(E date) {
         Dat<E> newLink = new Dat<E>(date);
         newLink.next = this.first;
         this.first = newLink;
@@ -21,7 +21,7 @@ public class DynamicLinkedListCont<E> implements Iterable<E>  {
         this.modCount++;
 
     }
-    public E get(int index) {
+    public synchronized E get(int index) {
         Dat<E> result = this.first;
         for (int i = 0; i < index; i++) {
             result = result.next;
@@ -29,7 +29,7 @@ public class DynamicLinkedListCont<E> implements Iterable<E>  {
         return result.date;
     }
 
-    public boolean contain(E value)  {
+    public synchronized boolean contain(E value)  {
         boolean res = false;
         Dat<E> result = this.first;
         for (int i = 0; i < size; i++) {
@@ -41,7 +41,7 @@ public class DynamicLinkedListCont<E> implements Iterable<E>  {
         return res;
     }
 
-   public E removeFirst() {
+   public synchronized E removeFirst() {
     E result = null;
     Dat<E> newLink1 = null;
     for (int i = 0; i < size - 1; i++) {
@@ -65,7 +65,7 @@ public class DynamicLinkedListCont<E> implements Iterable<E>  {
     return result;
    }
 
-    public E removeLast() {
+    public synchronized E removeLast() {
         E result = null;
         result = this.first.date;
         Dat<E> newLink = this.first.next;
@@ -78,7 +78,7 @@ public class DynamicLinkedListCont<E> implements Iterable<E>  {
 
 
     @Override
-    public Iterator<E> iterator() {
+    public synchronized Iterator<E> iterator() {
         if (expectedModCount == 0) expectedModCount = modCount;
         Iterator<E> temp = new Iterator<E>() {
 
@@ -103,7 +103,7 @@ public class DynamicLinkedListCont<E> implements Iterable<E>  {
         return temp;
     }
 
-    public static class Dat<E> {
+    private static class Dat<E> {
         E date;
         Dat<E> next;
 
