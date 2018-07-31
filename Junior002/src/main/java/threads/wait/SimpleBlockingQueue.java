@@ -7,15 +7,47 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 @ThreadSafe
-public class SimpleBlockingQueue<T> {
+public class SimpleBlockingQueue<E> {
 
     @GuardedBy("this")
-    private Queue<T> queue = new LinkedList<>();
+    private Queue<E> queue = new LinkedList<>();
+    private int size = 0;
+    private int max;
 
-    public void offer(T value) {
+    public SimpleBlockingQueue(int max) {
+        this.max = max;
     }
 
-    public T poll() {
-        return null;
+    public void offer(E value) {
+        if (size < max) {
+            queue.offer(value);
+            size++;
+        }
+    }
+
+    public E poll() {
+        E res = null;
+        if (!queue.equals(null)) {
+            res = queue.poll();
+            size--;
+        }
+        return res;
+    }
+
+    public int getSize() {
+        return this.size;
+    }
+
+    public int getMax() {
+        return this.max;
+    }
+
+
+
+    @Override
+    public String toString() {
+        return "SimpleBlockingQueue{" +
+                "queue=" + queue.toString() +
+                '}';
     }
 }
