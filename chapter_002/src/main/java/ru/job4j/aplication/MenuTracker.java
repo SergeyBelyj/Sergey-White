@@ -1,6 +1,7 @@
 package ru.job4j.aplication;
 
 
+import java.sql.SQLException;
 
 public class MenuTracker {
     private Input input;
@@ -50,7 +51,7 @@ public class MenuTracker {
         public void execute(Input input, Tracker tracker) {
             String name = input.ask("Enter name:");
             String desc = input.ask("Enter description:");
-            tracker.add(new Item(name, desc));
+                tracker.add(new Item(name, desc));
         }
 
     }
@@ -63,9 +64,9 @@ public class MenuTracker {
         }
         @Override
         public void execute(Input input, Tracker tracker) {
-            for (Item item : tracker.findAll()) {
+            for (String item : tracker.findAll()) {
                 System.out.println(
-                        String.format("%s. %s", item.getId(), item.getName())
+                        String.format(item)
                 );
             }
         }
@@ -81,8 +82,10 @@ public class MenuTracker {
                 String id = input.ask("Please, enter the task's id");
                 String name = input.ask("Please, enter the task's name");
                 String desc = input.ask("Please, enter the task's desc");
-                Item item = new Item(name, desc);
+                Item item = new Item(id, name, desc);
                 item.setId(id);
+                item.setName(name);
+                item.setDesc(desc);
                 tracker.edit(item);
             }
 
@@ -136,8 +139,12 @@ public class MenuTracker {
 
         @Override
         public void execute(Input input, Tracker tracker) {
-            this.ui.stop();
-                }
+            try {
+                this.ui.stop();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
 
 
 

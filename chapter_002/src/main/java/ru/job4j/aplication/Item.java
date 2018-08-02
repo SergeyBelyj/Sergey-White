@@ -15,15 +15,18 @@ public class Item extends Object {
         this.created = created;
     }
 
+
+    public Item(String id, String name, String desc) { }
+
     public Item(String name, String desc) {
         this.name = name;
         this.desc = desc;
     }
 
-    public Item() { }
-
     public void setId(String id) {
         this.id = id;
+        this.name = name;
+        this.desc = desc;
     }
 
     public String getId() {
