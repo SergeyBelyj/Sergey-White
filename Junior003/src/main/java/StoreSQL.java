@@ -7,25 +7,19 @@ public class StoreSQl {
    private Connection co;
     private static final Logger Log = LoggerFactory.getLogger(StoreSQl.class);
 
-
-
     Connection open() {
             try {
-                Class.forName("org.sqlite.JDBC");
                 co = DriverManager.getConnection(
-                        "jdbc:sqlite:users.db"
+                        "jdbc:sqlite:Junior003/src/main/java/xml/users.db"
                 );
                 System.out.println("Connected");
-
-
             } catch (Exception e) {
                 System.out.println(e.getMessage());
             }
-
         return co;
     }
 
-        void insert(int n) throws SQLException {
+        void insert(int n) {
         try {
             for (int i = 1; i <= n; i++) {
                 String query = "INSERT INTO entry (field)" +
@@ -38,7 +32,8 @@ public class StoreSQl {
             e.printStackTrace();
         }
         }
-     int[] output(int n) throws SQLException {
+
+     int[] output(int n) {
          int[] res = new int[n];
          int i = 0;
         try {
@@ -47,19 +42,14 @@ public class StoreSQl {
                 while (rs.next()) {
                         res[i] = rs.getInt(1);
                         i++;
-
-                  /*  if (res != null) {
-                        result.add(res);
-                        res = "";
-                    } */
                 }
                 st.close();
-
         } catch (SQLException e) {
             e.printStackTrace();
         }
         return  res;
     }
+
         void close() {
             try {
                 co.close();
@@ -67,8 +57,8 @@ public class StoreSQl {
             } catch (SQLException e) {
                 e.printStackTrace();
             }
-
         }
+
     public boolean isEmpty() {
         boolean result = false;
         try {
@@ -79,6 +69,7 @@ public class StoreSQl {
         }
         return result;
     }
+
     public void newSql() {
         try {
             Statement st = co.createStatement();
@@ -90,6 +81,7 @@ public class StoreSQl {
             Log.error(e.getMessage(), e);
         }
     }
+
     public void cleanDB() {
         try {
             Statement st = co.createStatement();
@@ -100,11 +92,5 @@ public class StoreSQl {
         }
 
     }
-
-
-
-
-
-
     }
 

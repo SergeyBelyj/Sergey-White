@@ -1,7 +1,3 @@
-import javax.xml.bind.JAXBContext;
-import javax.xml.bind.Marshaller;
-import javax.xml.bind.annotation.XmlRootElement;
-import java.util.Arrays;
 
 public class Field {
     private int field;

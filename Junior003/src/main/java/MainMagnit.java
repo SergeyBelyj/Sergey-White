@@ -1,13 +1,12 @@
 
-
 import javax.xml.bind.JAXBContext;
-
 import javax.xml.bind.Marshaller;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class MainMagnit {
+
     public static void main(String[] args) throws Exception {
         System.out.println("Please entre n");
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
@@ -16,8 +15,6 @@ public class MainMagnit {
         StoreSQl storeSQl = new StoreSQl();
         UserXml xmlUsage = new UserXml();
         List<Field> field = new ArrayList<Field>();
-
-
         storeSQl.open();
         if (storeSQl.isEmpty()) {
             storeSQl.newSql();
@@ -28,7 +25,7 @@ public class MainMagnit {
            field.add(new Field(res[i]));
         }
         xmlUsage.setValues(field);
-        File file = new File("C:/projects/Sergey-White/Junior003/src/main/java/xml/jaxb.xml");
+        File file = new File("Junior003/src/main/java/xml/jaxb.xml");
         JAXBContext context = JAXBContext.newInstance(UserXml.class);
         Marshaller marshaller = context.createMarshaller();
         marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
