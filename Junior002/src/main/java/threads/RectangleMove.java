@@ -17,22 +17,21 @@ public class RectangleMove implements Runnable {
             int step = 10;
             boolean deltaY = false;
             while (!Thread.interrupted()) {
+                try {
+
                     if ((rect.getX() < 300) && (rect.getX() > 0)) {
                         this.rect.setX(this.rect.getX() + step);
-                        try {
-                            Thread.sleep(50);
-                        } catch (InterruptedException e) {
-                            Thread.currentThread().interrupt();
-                        }
-                    } else  {
+                        Thread.sleep(50);
+                        Thread.currentThread().interrupt();
+
+                    } else {
                         this.rect.setX(this.rect.getX() - step);
-                        try {
-                            Thread.sleep(50);
-                        } catch (InterruptedException e) {
-                            e.printStackTrace();
-                        }
+                        Thread.sleep(50);
                         step = step * -1;
                     }
+                } catch (Exception e) {
+                    e.getStackTrace();
+                }
                 }
             }
         }
