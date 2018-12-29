@@ -1,4 +1,5 @@
 public class Calculator {
+
     public interface Operation {
         double calc(int left, int right);
     }
@@ -15,12 +16,8 @@ public class Calculator {
         Calculator calc = new Calculator();
         calc.multiple(
                 0, 10, 2,
-                (value, index) -> {
-                    int result = value * index;
-                    System.out.printf("Multiple %s * %s = %s %n", value, index, result);
-                    return result;
-                }
-
+                MathUtil::add,
+                result -> System.out.println(result)
         );
     }
 }
