@@ -15,9 +15,8 @@ public class Calculator {
     public static void main(String[] args) {
         Calculator calc = new Calculator();
         calc.multiple(
-                0, 10, 2,
-                MathUtil::add,
-                result -> System.out.println(result)
+                0, 10, 3,
+                MathUtil::add
         );
     }
 }
