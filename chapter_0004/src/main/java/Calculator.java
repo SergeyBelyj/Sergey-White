@@ -3,7 +3,6 @@ public class Calculator {
     public interface Operation {
         double calc(int left, int right);
     }
-
     public void multiple(int start, int finish, int value, Operation op) {
         for (int index = start; index != finish; index++) {
             System.out.println(

@@ -19,7 +19,6 @@ public class UserConvert {
                 '}';
     }
 }
-
     public List<User> convert(List<String> names, Function<String, User> op) {
         List<User> users = new ArrayList<>();
         names.forEach(
